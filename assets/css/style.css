@@ -1,0 +1,64 @@
+/* CSS HEX */
+:root {
+  --cultured: #f8f9faff;
+  --cultured-2: #e9ecefff;
+  --gainsboro: #dee2e6ff;
+  --light-gray: #ced4daff;
+  --cadet-blue-crayola: #adb5bdff;
+  --sonic-silver: #6c757dff;
+  --davys-grey: #495057ff;
+  --onyx: #343a40ff;
+  --eerie-black: #212529ff;
+}
+
+* {
+  margin: 0;
+  font-family: "Barlow", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cultured);
+  text-align: centre;
+}
+
+p {
+  padding: 5px;
+}
+header {
+  width: 100%;
+}
+.header {
+  margin: 30px 20px;
+  font-size: medium;
+}
+
+/* Flex properties for navbar with links*/
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--eerie-black);
+  justify-content: center;
+}
+
+.nav-links-container {
+  display: flex;
+}
+
+.nav-link-item {
+  margin: 30px;
+}
+
+.nav-link {
+  color: var(--cultured-2);
+  font-size: larger;
+  font-weight: bolder;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--sonic-silver);
+  transition: color 0.2s;
+}
