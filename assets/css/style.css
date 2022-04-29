@@ -11,6 +11,8 @@
   --eerie-black: #212529ff;
 }
 
+/*whole document styling*/
+
 * {
   margin: 0;
   font-family: "Barlow", sans-serif;
@@ -18,36 +20,63 @@
 }
 
 body {
+  width: 100%;
   background-color: var(--cultured);
   text-align: centre;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+html, body {
+  height: 100%;
 }
 
 p {
-  padding: 5px;
+  padding: 10px;
 }
 header {
-  width: 100%;
+  width:100%;
 }
-.header {
-  margin: 30px 20px;
-  font-size: medium;
+
+h1 {
+  font-size: 40px;
+  padding-bottom: 10px;
 }
+
+hr {
+  
+  margin-bottom: 10px;
+}
+
+#main {
+  flex: 1 0 auto;
+}
+
 
 /* Flex properties for navbar with links*/
 
 .nav-container {
   display: flex;
   flex-direction: row;
-  background-color: var(--eerie-black);
-  justify-content: center;
+  background-color: var(--onyx);
+  justify-content: space-between;
+  width:100%;
 }
 
 .nav-links-container {
   display: flex;
-}
+  justify-content: space-between;
+  padding-top: 70px;
+  }
 
 .nav-link-item {
-  margin: 30px;
+  padding-top: 10px;
+  border-left: 30px;
+  margin-left: 30px;
+}
+.icon {
+  margin-top: 33px;
+  padding: 10px 10px;
 }
 
 .nav-link {
@@ -62,3 +91,75 @@ a:hover {
   color: var(--sonic-silver);
   transition: color 0.2s;
 }
+
+/*Main body*/
+
+section {
+  text-align:center ;
+  font-size: ;
+  background-color: lightgrey;
+  width: 900px;
+  border: 2px solid var(--onyx);
+  padding: 50px;
+  margin:auto;
+  margin-top:100px;
+  margin-bottom: 80px;
+}
+
+#start-quiz-button {
+  background-color: var(--cadet-blue-crayola);
+  font-size: 24px;
+  color: var(--eerie-black);
+  margin-top: 40px;
+  width: 50%;
+  padding:10px;
+}
+
+/* Webpage footer */
+
+footer {
+  flex-shrink: 0;
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width:100%;
+    background-color: var(--onyx);
+    color:var(--cultured-2)
+    text-decoration: none;
+  }
+
+
+/*MEDIA QUERIES */
+
+/*tablets*/
+@media screen and (max-width: 768px) {
+
+   
+ 
+
+ 
+  
+/*phones*/
+
+@media screen and (max-width: 480px) {
+  body {
+    text-align: center;
+  }
+  
+    
+  }
+  
+  /*nav bar header*/
+  .nav-links-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-link-item {
+      margin: 5px;
+    }
+  
+
+
+ 
