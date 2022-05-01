@@ -1,7 +1,17 @@
 // GLOBAL DECLARATIONS
 
-//questions
+//link to HTML document by ID
 
+//target the quiz section on document
+const startQuizSection=document.getElementById("start-quiz-section");
+
+//target the start quiz button
+const startBtn = document.getElementById("start-quiz-button");
+
+//target the timer span
+const timerSpan = document.getElementById("timer-span");
+
+//questions
 const questions = [{
     question: "In which country would you find the Wadi Rum?",
     a: "Syria",
@@ -31,7 +41,7 @@ d: "Stanley Park",
 
 {
     question: "The World Heritage Site Machu Picchu can be found in which country?",
-a: "Ecuador Park",
+a: "Ecuador",
 b: "Bolivia",
 c: "Peru",
 d: "Chile",
@@ -52,12 +62,12 @@ d: "7",
 a: "5.5 degrees",
 b: "6.5 degrees",
 c: "7.5 degrees",
-d: "58.5 degrees",
+d: "8.5 degrees",
 // answer: "a",
 },
 
 {
-    question: "Uluru in Australia is made up of sandstone from long ago?"
+    question: "Uluru in Australia is made up of sandstone from how long ago?"
 a: "Around 300 million years",
 b: "Around 400 million years",
 c: "Around 500 million years",
@@ -71,11 +81,9 @@ a: "3",
 b: "4",
 c: "5",
 d: "6",
-// answer: "d",
+// answer: "b",
 },
 ];
-
-
 
 let questionIndex = 0;
 let timerValue = 10 * questions.length;
@@ -92,9 +100,15 @@ const removeStartSection = () => {};
 const startTimer = () => {
   // declare function to execute every 1 sec
   const countdown = () => {
+      
     // decrement timer value
+    timer -= 1;
+
     // if quizComplete is true then stop timer
     // check if timer reaches 0
+    if (timer === 0) {
+        clearInterval(timerId);
+
     // if true render game over
   };
 
