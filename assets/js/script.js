@@ -1,67 +1,68 @@
-// delcare list of questions
+// delcare array of questions
 const questions = [
   {
-    question: "In which country would you find the Wadi Rum?",
+    questionText: "In which country would you find the Wadi Rum?",
     choices: ["Syria", "Iraq", "Jordan", "Bahrain"],
-    answer: [2], // answer: "Jordan"
+    answer: 2, // answer: "Jordan"
   },
 
   {
-    question: "Which building is 632 metres tall?",
+    questionText: "Which building is 632 metres tall?",
     choices: [
       "Empire State Building",
       "Merdeka 118",
       "Burj Khalifa",
       "Shanghai Tower",
     ],
-    answer: [3], // answer: Shanghai Tower,
+    answer: 3, // answer: Shanghai Tower,
   },
 
   {
-    question: "Central Park in NYC was modelled on which park in the UK?",
+    questionText: "Central Park in NYC was modelled on which park in the UK?",
     choices: [
       "Hyde Park",
       "Birkenhead Park",
       "Cannonhill Park",
       "Stanley Park",
     ],
-    answer: [1], // answer: Birkenhead
+    answer: 3, // answer: Birkenhead
   },
 
   {
-    question:
+    questionText:
       "The World Heritage Site Machu Picchu can be found in which country?",
     choices: ["Ecuador", "Bolivia", "Peru", "Chile"],
     answer: [2], // answer: Peru
   },
 
   {
-    question: "How many countries border the Himalayas?",
+    questionText: "How many countries border the Himalayas?",
     choices: ["4", "5", "6", "7"],
-    answer: [2], // answer: "c",
+    answer: 3, // answer: "c",
   },
 
   {
-    question: "How many degrees does the Pisa tower lean?",
+    questionText: "How many degrees does the Pisa tower lean?",
     choices: ["5.5 degrees", "6.5 degrees", "7.5 degrees", "8.5 degrees"],
-    answer: [0], //5.5 degrees
+    answer: 3, //5.5 degrees
   },
 
   {
-    question: "Uluru in Australia is made up of sandstone from how long ago?",
+    questionText:
+      "Uluru in Australia is made up of sandstone from how long ago?",
     choices: [
       "Around 300 million years",
       "Around 400 million years",
       "Around 500 million years",
       "Around 600 million years",
     ],
-    answer: [3], // answer: Around 6oom years
+    answer: 3, // answer: Around 6oom years
   },
 
   {
-    question: "How many presidents make up Mount Rushmore?",
+    questionText: "How many presidents make up Mount Rushmore?",
     choices: ["3", "4", "5", "6"],
-    answer: [1], // answer: 4
+    answer: 3, // answer: 4
   },
 ];
 
@@ -101,6 +102,9 @@ const storedScores = (onLoad = () => {
 const renderQuestion = () => {
   console.log("render question");
 
+  //get current question
+  const currentQuestion = questions[questionIndex];
+
   //create section
   const section = document.createElement("section");
   section.setAttribute("class", "section-question-container");
@@ -113,14 +117,14 @@ const renderQuestion = () => {
   //TO DO - this should be dynamic question title
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "section-title");
-  h2.textContent = "In which country would you find the Wadi Rum?";
+  h2.textContent = currentQuestion.questionText;
 
   //create hr
   const hr = document.createElement("hr");
   hr.setAttribute("class", "section-hr");
 
   //append child <h2> and <hr> to parent div?  -NOT SURE Check!
-  divFirstSection.append(h2, hr);
+  // divFirstSection.append(h2, hr);//
 
   //create div
   const divAnswerSection = document.createElement("div");
@@ -133,20 +137,20 @@ const renderQuestion = () => {
   //TO DO
   //loop over options to create and append li to ul
   const li1 = document.createElement("li");
-  li1.setAttribute("class", "answer-list");
-  li1.textContent = "Syria";
+  li1.setAttribute("class", "list-item");
+  li1.textContent = currentQuestion.choices[0];
 
   const li2 = document.createElement("li");
-  li2.setAttribute("class", "answer-list");
-  li2.textContent = "Jordan";
+  li2.setAttribute("class", "list-item");
+  li2.textContent = currentQuestion.choices[1];
 
   const li3 = document.createElement("li");
-  li3.setAttribute("class", "answer-list");
-  li3.textContent = "lebanon";
+  li3.setAttribute("class", "list-item");
+  li3.textContent = currentQuestion.choices[2];
 
   const li4 = document.createElement("li");
-  li4.setAttribute("class", "answer-list");
-  li4.textContent = "Iraq";
+  li4.setAttribute("class", "list-item");
+  li4.textContent = currentQuestion.choices[3];
 
   //append li (child) to ul (parent)
   ul.append(li1, li2, li3, li4);
@@ -154,7 +158,9 @@ const renderQuestion = () => {
   divAnswerSection.append(ul);
 
   //append div and ul (children) to section (parent)
-  section.append(divFirstSection, divAnswerSection);
+  // section.append(divFirstSection, divAnswerSection);
+
+  section.append(h2, hr, ul);
 
   //append section (child) to mainElement (parent)
   mainElement.append(section);
