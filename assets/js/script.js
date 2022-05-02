@@ -1,114 +1,133 @@
-// GLOBAL DECLARATIONS
-
-//link to HTML document by ID
-
-//target the quiz section on document
-const startQuizSection=document.getElementById("start-quiz-section");
-
-//target the start quiz button
-const startBtn = document.getElementById("start-quiz-button");
-
-//target the timer span
-const timerSpan = document.getElementById("timer-span");
-
-//questions
-const questions = [{
+// delcare list of questions
+const questions = [
+  {
     question: "In which country would you find the Wadi Rum?",
-    a: "Syria",
-    b: "Iraq",
-    c: "Jordan",
-    d: "Bahrain",
-   // answer: "b",
-},
+    choices: ["Syria", "Iraq", "Jordan", "Bahrain"],
+    answer: [2], // answer: "Jordan"
+  },
 
-{
-    question: "Which building is 632 metres tall",
-    a: "Empire State Building",
-    b: "Merdeka 118",
-    c: "Burj Khalifa",
-    d: "Shanghai Tower",
-   // answer: "d",
-},
+  {
+    question: "Which building is 632 metres tall?",
+    choices: [
+      "Empire State Building",
+      "Merdeka 118",
+      "Burj Khalifa",
+      "Shanghai Tower",
+    ],
+    answer: [3], // answer: Shanghai Tower,
+  },
 
-{
+  {
     question: "Central Park in NYC was modelled on which park in the UK?",
-a: "Hyde Park",
-b: "Birkenhead Park",
-c: "Cannonhill Park",
-d: "Stanley Park",
-// answer: "b",
-},
+    choices: [
+      "Hyde Park",
+      "Birkenhead Park",
+      "Cannonhill Park",
+      "Stanley Park",
+    ],
+    answer: [1], // answer: Birkenhead
+  },
 
-{
-    question: "The World Heritage Site Machu Picchu can be found in which country?",
-a: "Ecuador",
-b: "Bolivia",
-c: "Peru",
-d: "Chile",
-// answer: "c",
-},
+  {
+    question:
+      "The World Heritage Site Machu Picchu can be found in which country?",
+    choices: ["Ecuador", "Bolivia", "Peru", "Chile"],
+    answer: [2], // answer: Peru
+  },
 
-{
+  {
     question: "How many countries border the Himalayas?",
-a: "4",
-b: "5",
-c: "6",
-d: "7",
-// answer: "c",
-},
+    choices: ["4", "5", "6", "7"],
+    answer: [2], // answer: "c",
+  },
 
-{
-    question: "How many degrees does the Pisa tower lean?"
-a: "5.5 degrees",
-b: "6.5 degrees",
-c: "7.5 degrees",
-d: "8.5 degrees",
-// answer: "a",
-},
+  {
+    question: "How many degrees does the Pisa tower lean?",
+    choices: ["5.5 degrees", "6.5 degrees", "7.5 degrees", "8.5 degrees"],
+    answer: [0], //5.5 degrees
+  },
 
-{
-    question: "Uluru in Australia is made up of sandstone from how long ago?"
-a: "Around 300 million years",
-b: "Around 400 million years",
-c: "Around 500 million years",
-d: "Around 600 million years",
-// answer: "d",
-},
+  {
+    question: "Uluru in Australia is made up of sandstone from how long ago?",
+    choices: [
+      "Around 300 million years",
+      "Around 400 million years",
+      "Around 500 million years",
+      "Around 600 million years",
+    ],
+    answer: [3], // answer: Around 6oom years
+  },
 
-{
-    question: "How many presidents make up Mount Rushmore?"
-a: "3",
-b: "4",
-c: "5",
-d: "6",
-// answer: "b",
-},
+  {
+    question: "How many presidents make up Mount Rushmore?",
+    choices: ["3", "4", "5", "6"],
+    answer: [1], // answer: 4
+  },
 ];
 
+console.log(questions);
+// GLOBAL DECLARATIONS
+
+//target the quiz main id on index.html document
+const main = document.getElementById("main");
+
+//target the quiz section id  on index.html document
+const startQuizSection = document.getElementById("start-quiz-section");
+
+//target the start quiz button id on index.html document
+const startButton = document.getElementById("start-quiz-button");
+
+//target the timer span index.html document
+const timerSpan = document.getElementById("timer-span");
+
 let questionIndex = 0;
+let timer = 100;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
+let score = 0;
 
-const onLoad = () => {
-  // initialise local storage
-  // check if highscores exists in LS
-  // if false then set highscores to empty array in LS
+//store scores in LS
+const storedScores = (onLoad = () => {
+  // initialize local storage
+
+  const highScoresOnLS = localStorage.getItem("storedScores");
+
+  // check if high scores exists in LS
+
+  // if false then set high scores to empty array in LS
+});
+
+//declare function to render questions to page
+const renderQuestion = () => {
+  console.log("render question");
 };
 
-const removeStartSection = () => {};
+//declare function to remove #start-quiz-section from page
+const removeStartSection = () => {
+  console.log("remove start section");
+};
+//declare event handler for when start button is clicked
+const handleStartButtonClick = () => {
+  console.log("start button clicked");
 
+  //remove start section
+  removeStartSection();
+  //render questions
+  renderQuestion();
+};
+
+//add event listener to start quiz button
+startButton.addEventListener("click", handleStartButtonClick);
+
+//start timer
 const startTimer = () => {
   // declare function to execute every 1 sec
-  const countdown = () => {
-      
-    // decrement timer value
-    timer -= 1;
+  timer -= 1;
 
+  const countdown = () => {
+    // decrement timer value
     // if quizComplete is true then stop timer
     // check if timer reaches 0
-    if (timer === 0) {
-        clearInterval(timerId);
-
     // if true render game over
   };
 

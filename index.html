@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Famous Landmarks of the World Quiz</title>
+    <title>Famous Landmarks of the World Quiz | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="./assets/css/style.css"/>
@@ -13,63 +13,43 @@
     <!--Header with links-->
     <header>
       <nav class="nav-container">
-        <div class="nav-links-container">
-          <div class="nav-link-item">
-            <a class="nav-link" href="./index.html">Home</a>
-          </div>
-          <div class="nav-link-item">
-            <a class="nav-link" href="./highscores.html">High Scores</a>
-          </div> 
-          
-         </div> 
-         <div>  
-          <img class="icon"
-         src="./assets/images/001-landmark.png"
-         alt="Famous landmark icon."/>  
-        </div>
-        
+        <a class="nav-link" href="./highscores.html">High Scores</a>
+                    <a href="./index.html" class="nav-link-icon" >
+                      <img
+                      src="./assets/images/001-landmark.png"
+                      alt="Famous landmark icon." class="icon-image"> </a>
+                  
+                
       </nav>
     </header>
 
-    <!--Main section for the quiz-->
+    <!--First page - Main section for the quiz-->
     <main id="main">
-      <section id="start-quiz-section">
+      <section id="start-quiz-section" class="section">
         <h1>Famous Landmarks Quiz</h1>
         <hr>
 
-        <!--Brief intro about the quiz-->
+        <!--First page - Brief intro about the quiz-->
 
         <div>
         <p>
-          You have travelled around the world or are just interested in famous
-          landmarks or, perhaps, you just like quizzes! These questions will test your
-          knowledge of how well you know facts about famous landmarks from
-          different parts of the world.
+          Test your knowledge of facts about landmarks from around the world?
         </p>
-        <p>You have 50 seconds to answer the questions.  Watch out though! You will lose 5 seconds if you get a question wrong. Just click on the button to start.  Good luck</button></p>
+        <p>You have 60 seconds to answer the questions.  Watch out though! You will lose 5 seconds if you get a question wrong. Just click on the button to start.  Good luck!</button></p>
       </div>
 
-<!--start quiz button-->
-      <div class="button">
-        <button id="start-quiz-button">Start Quiz</button>
+<!--First page - start quiz button-->
+      <div class="button-control">
+        <button type="button" id="start-quiz-button" class="button">Start Quiz</button>
       </div>
 
     </section>
- 
-      <!--timer div -->
-
-        <div>Countdown: <span id="timer-span">60 seconds </span></div>
-  
-
-
-  
-      
-    </main>
+     </main>
 
     <!--web footer section-->
-    <footer>
-      <nav class="footer-container">
-        <div class="footer-links-container">
+    <footer class="footer">
+      <div class="footer-container">
+      
           <div class="footer-link-item">
             <a class="social-icon" href="mailto:nsharmauk711@gmail.com" target="_blank">  
               <ion-icon name="mail-outline"></ion-icon>
@@ -81,10 +61,9 @@
             <ion-icon name="logo-github"></ion-icon>
             </a>
          </div> 
-         <div>  
-          <div class="footer-links-container"> Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik"> monkik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+          <div class="footer-link"> Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik"> monkik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
-      </nav>
+      </div>
     </footer>
       <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
