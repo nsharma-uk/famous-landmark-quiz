@@ -25,7 +25,7 @@ const questions = [
       "Cannonhill Park",
       "Stanley Park",
     ],
-    answer: 3, // answer: Birkenhead
+    answer: 1, // answer: Birkenhead
   },
 
   {
@@ -44,7 +44,7 @@ const questions = [
   {
     questionText: "How many degrees does the Pisa tower lean?",
     choices: ["5.5 degrees", "6.5 degrees", "7.5 degrees", "8.5 degrees"],
-    answer: 3, //5.5 degrees
+    answer: 0, //5.5 degrees
   },
 
   {
@@ -62,7 +62,7 @@ const questions = [
   {
     questionText: "How many presidents make up Mount Rushmore?",
     choices: ["3", "4", "5", "6"],
-    answer: 3, // answer: 4
+    answer: 1, // answer: 4
   },
 ];
 
@@ -106,8 +106,6 @@ const handleChoiceClick = (event) => {
   //get target
   const target = event.target;
 
-  //check if click originates from <li> only
-
   //check if target element is li
   if (target.tagName === "LI") {
     //get the option the user clicked on
@@ -121,18 +119,49 @@ const handleChoiceClick = (event) => {
       question,
       value,
     };
-    console.log(answerValue);
 
     //TODO store in local storage
+    console.log(answerValue);
+
+    //remove both present question and last question
+    removeQuestion();
+
+    //if it's not the last question
+    if (questionIndex < questions.length - 1) {
+      //go to the next question
+      questionIndex += 1;
+
+      //and render the next question
+      renderQuestion();
+    } else {
+      //go to the last question amd render form
+
+      //remove questions
+
+      renderResults();
+      renderForm();
+    }
   }
-
-  if() {
-    
-
-
-  }
-
 };
+
+//declare function to render the results in function choiceHandleClick
+const renderResults = () => {
+  console.log("render results");
+};
+
+const renderForm = () => {
+  // use HTML as guide and build in JS
+  // append section to main
+  // add submit event handler to form
+  console.log("render form");
+};
+
+//declare function to remove question from page
+const removeQuestion = () => {
+  console.log("remove question");
+  document.getElementById("question-container").remove();
+};
+
 //declare function to render questions to page
 const renderQuestion = () => {
   //get current question
@@ -141,7 +170,7 @@ const renderQuestion = () => {
   //create section
   const section = document.createElement("section");
   section.setAttribute("class", "section-question-container");
-
+  section.setAttribute("id", "question-container");
   //create div
   const divFirstSection = document.createElement("div");
   divFirstSection.setAttribute("class", "div-section-title");
@@ -292,11 +321,9 @@ const renderAlert = (message, status) => {
   // append div to #question-section
 };
 
-const renderForm = () => {
-  // use HTML as guide and build in JS
-  // append section to main
-  // add submit event handler to form
-};
+// use HTML as guide and build in JS
+// append section to main
+// add submit event handler to form
 
 const renderQuizCompleteSection = () => {
   // use HTML as guide and build in JS
