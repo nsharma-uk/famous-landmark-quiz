@@ -32,7 +32,7 @@ const questions = [
     questionText:
       "The World Heritage Site Machu Picchu can be found in which country?",
     choices: ["Ecuador", "Bolivia", "Peru", "Chile"],
-    answer: [2], // answer: Peru
+    answer: 2, // answer: Peru
   },
 
   {
@@ -66,7 +66,6 @@ const questions = [
   },
 ];
 
-console.log(questions);
 // GLOBAL DECLARATIONS
 
 //target the quiz main id on index.html document
@@ -98,10 +97,44 @@ const storedScores = (onLoad = () => {
   // if false then set high scores to empty array in LS
 });
 
+//event handler for click event for answers
+// within renderQuestion function
+const handleChoiceClick = (event) => {
+  //get current target
+  const currentTarget = event.currentTarget;
+
+  //get target
+  const target = event.target;
+
+  //check if click originates from <li> only
+
+  //check if target element is li
+  if (target.tagName === "LI") {
+    //get the option the user clicked on
+    const value = target.getAttribute("data-value");
+
+    //get the question the user answered
+    const question = questions[questionIndex].questionText;
+
+    //build an answer object that contains question and answer
+    const answerValue = {
+      question,
+      value,
+    };
+    console.log(answerValue);
+
+    //TODO store in local storage
+  }
+
+  if() {
+    
+
+
+  }
+
+};
 //declare function to render questions to page
 const renderQuestion = () => {
-  console.log("render question");
-
   //get current question
   const currentQuestion = questions[questionIndex];
 
@@ -124,7 +157,7 @@ const renderQuestion = () => {
   hr.setAttribute("class", "section-hr");
 
   //append child <h2> and <hr> to parent div?  -NOT SURE Check!
-  // divFirstSection.append(h2, hr);//
+  divFirstSection.append(h2, hr);
 
   //create div
   const divAnswerSection = document.createElement("div");
@@ -134,22 +167,25 @@ const renderQuestion = () => {
   const ul = document.createElement("ul");
   ul.setAttribute("class", "answer-list");
 
-  //TO DO
   //loop over options to create and append li to ul
   const li1 = document.createElement("li");
   li1.setAttribute("class", "list-item");
+  li1.setAttribute("data-value", currentQuestion.choices[0]);
   li1.textContent = currentQuestion.choices[0];
 
   const li2 = document.createElement("li");
   li2.setAttribute("class", "list-item");
+  li2.setAttribute("data-value", currentQuestion.choices[1]);
   li2.textContent = currentQuestion.choices[1];
 
   const li3 = document.createElement("li");
   li3.setAttribute("class", "list-item");
+  li3.setAttribute("data-value", currentQuestion.choices[2]);
   li3.textContent = currentQuestion.choices[2];
 
   const li4 = document.createElement("li");
   li4.setAttribute("class", "list-item");
+  li4.setAttribute("data-value", currentQuestion.choices[3]);
   li4.textContent = currentQuestion.choices[3];
 
   //append li (child) to ul (parent)
@@ -158,12 +194,13 @@ const renderQuestion = () => {
   divAnswerSection.append(ul);
 
   //append div and ul (children) to section (parent)
-  // section.append(divFirstSection, divAnswerSection);
-
-  section.append(h2, hr, ul);
+  section.append(divFirstSection, divAnswerSection);
 
   //append section (child) to mainElement (parent)
   mainElement.append(section);
+
+  //add event listener to question section
+  section.addEventListener("click", handleChoiceClick);
 };
 
 //declare function to remove #start-quiz-section from page
