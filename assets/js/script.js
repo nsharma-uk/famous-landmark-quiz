@@ -106,7 +106,6 @@ const renderQuestion = () => {
 const removeStartSection = () => {
   console.log("remove start section");
   startQuizSection.remove();
-
 };
 //declare event handler for when start button is clicked
 const handleStartButtonClick = () => {
@@ -125,16 +124,29 @@ startButton.addEventListener("click", handleStartButtonClick);
 //start timer
 const startTimer = () => {
   // declare function to execute every 1 sec
-  timer -= 1;
-
   const countdown = () => {
+
     // decrement timer value
+    timerValue -= 1;
+
     // if quizComplete is true then stop timer
-    // check if timer reaches 0
-    // if true render game over
+    if (quizComplete) {
+      clearInterval(timerID);
+    } else {
+      
+      // check if timer reaches 0
+    if (timerValue <= 0) {
+clearInterval (timerID);
+
+  // if true render game over
+  renderQuestionSection()
+    }
+  }
+     
   };
 
   // setInterval of 1000ms (1s)
+  const timerID = setInterval(countdown, 1000);
 };
 
 const validateAnswer = () => {
