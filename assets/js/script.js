@@ -69,7 +69,7 @@ console.log(questions);
 // GLOBAL DECLARATIONS
 
 //target the quiz main id on index.html document
-const main = document.getElementById("main");
+const mainElement = document.getElementById("main");
 
 //target the quiz section id  on index.html document
 const startQuizSection = document.getElementById("start-quiz-section");
@@ -100,6 +100,64 @@ const storedScores = (onLoad = () => {
 //declare function to render questions to page
 const renderQuestion = () => {
   console.log("render question");
+
+  //create section
+  const section = document.createElement("section");
+  section.setAttribute("class", "section-question-container");
+
+  //create div
+  const divFirstSection = document.createElement("div");
+  divFirstSection.setAttribute("class", "div-section-title");
+
+  //create h2
+  //TO DO - this should be dynamic question title
+  const h2 = document.createElement("h2");
+  h2.setAttribute("class", "section-title");
+  h2.textContent = "In which country would you find the Wadi Rum?";
+
+  //create hr
+  const hr = document.createElement("hr");
+  hr.setAttribute("class", "section-hr");
+
+  //append child <h2> and <hr> to parent div?  -NOT SURE Check!
+  divFirstSection.append(h2, hr);
+
+  //create div
+  const divAnswerSection = document.createElement("div");
+  divAnswerSection.setAttribute("class", "div-answer-list");
+
+  //create ul and append 4 li
+  const ul = document.createElement("ul");
+  ul.setAttribute("class", "answer-list");
+
+  //TO DO
+  //loop over options to create and append li to ul
+  const li1 = document.createElement("li");
+  li1.setAttribute("class", "answer-list");
+  li1.textContent = "Syria";
+
+  const li2 = document.createElement("li");
+  li2.setAttribute("class", "answer-list");
+  li2.textContent = "Jordan";
+
+  const li3 = document.createElement("li");
+  li3.setAttribute("class", "answer-list");
+  li3.textContent = "lebanon";
+
+  const li4 = document.createElement("li");
+  li4.setAttribute("class", "answer-list");
+  li4.textContent = "Iraq";
+
+  //append li (child) to ul (parent)
+  ul.append(li1, li2, li3, li4);
+
+  divAnswerSection.append(ul);
+
+  //append div and ul (children) to section (parent)
+  section.append(divFirstSection, divAnswerSection);
+
+  //append section (child) to mainElement (parent)
+  mainElement.append(section);
 };
 
 //declare function to remove #start-quiz-section from page
@@ -125,7 +183,6 @@ startButton.addEventListener("click", handleStartButtonClick);
 const startTimer = () => {
   // declare function to execute every 1 sec
   const countdown = () => {
-
     // decrement timer value
     timerValue -= 1;
 
@@ -133,16 +190,14 @@ const startTimer = () => {
     if (quizComplete) {
       clearInterval(timerID);
     } else {
-      
       // check if timer reaches 0
-    if (timerValue <= 0) {
-clearInterval (timerID);
+      if (timerValue <= 0) {
+        clearInterval(timerID);
 
-  // if true render game over
-  renderQuestionSection()
+        // if true render game over
+        renderQuestionSection();
+      }
     }
-  }
-     
   };
 
   // setInterval of 1000ms (1s)
