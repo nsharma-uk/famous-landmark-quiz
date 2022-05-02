@@ -105,6 +105,8 @@ const renderQuestion = () => {
 //declare function to remove #start-quiz-section from page
 const removeStartSection = () => {
   console.log("remove start section");
+  startQuizSection.remove();
+
 };
 //declare event handler for when start button is clicked
 const handleStartButtonClick = () => {
@@ -112,6 +114,7 @@ const handleStartButtonClick = () => {
 
   //remove start section
   removeStartSection();
+
   //render questions
   renderQuestion();
 };
