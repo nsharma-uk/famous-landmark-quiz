@@ -85,23 +85,36 @@ let timer = 100;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 let score = 0;
-let answerIndex = 0;
-let correctAnswers = 0;
 
-const initialisedLocalStorage = () => {
-
-  const feedbackChoicesFromLS = JSON.parse(
-    localStorage.getItem("choicesResults")
+const initialiseLocalStorage = () => {
+  // get answer Results from LS
+  const  ResultsFromLS = JSON.parse(
+    localStorage.getItem("answerResults")
   );
 
-if (!feedbackChoicesFromLS) {
-  //get feedbackChoices fro LS
-  localStorage.setItem("choicesResults", JSON.stringify([]));
+  const allResultsFromLS = JSON.parse(localStorage.getItem("allResults"));
 
-}};
+  if (!ResultsFromLS) {
+    // if not exist set LS to have answerResults as an empty array
+    localStorage.setItem("answerResults", JSON.stringify([]));
+  }
 
+  if (!allResultsFromLS) {
+    // if not exist set LS to have feedbackResults as an empty array
+    localStorage.setItem("allResults", JSON.stringify([]));
+  }
+};
 
-const resultScores = () => {};
+const storeInLS = (key, value) => {
+  // get feedbackResults from LS
+  const arrayFromLS = JSON.parse(localStorage.getItem(key));
+
+  // push answer in to array
+  arrayFromLS.push(value);
+
+  // set feedbackResults in LS
+  localStorage.setItem(key, JSON.stringify(arrayFromLS));
+};
 
 //event handler for click event for answers
 // within renderQuestion function
@@ -126,8 +139,8 @@ const handleChoiceClick = (event) => {
       value,
     };
 
-    //TODO store in local storage
-    console.log(answerValue);
+    //store in local storage
+    storeChoicesInLS(answerValue);
 
     //remove both present question and last question
     removeQuestion();
@@ -278,7 +291,7 @@ const startTimer = () => {
 };
 
 //adding event listener function as a higher order function
-//startButton.addEventListener("click", handleTimerButton);    TO DO
+startButton.addEventListener("click", handleTimerButton);  
 
 const validateAnswer = () => {
   // get answer clicked from user
