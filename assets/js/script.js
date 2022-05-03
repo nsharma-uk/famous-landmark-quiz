@@ -86,16 +86,64 @@ let timerValue = 10 * questions.length;
 let quizComplete = false;
 let score = 0;
 
-//store scores in LS
-const storedScores = (onLoad = () => {
-  // initialize local storage
 
-  const highScoresOnLS = localStorage.getItem("storedScores");
+
+const readFromLocalStorage = (key) => {
+  // get from LS using key name
+
+  const scoresFromLS = localStorage.getItem(key);
+
+  // parse data from LS
+  const parsedScores = JSON.parse(scoresFromLS);
+
+  if (parsedData) {
+    return parsedData;
+  } else {
+    return defaultValue;
+  }
+};
+
+const getScoresFromLS = () => {
+
+    // get from LS using key name
+  const scoresFromLS = localStorage.getItem(scoresFromLocalStorage);
+
+  // parse data from LS
+  const parsedScoresFromLS = JSON.parse(resultScores);
+
+  const StoreOnLS = localStorage.getItem("storedScores");
 
   // check if high scores exists in LS
 
   // if false then set high scores to empty array in LS
-});
+};
+
+const resultScores = () => {}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //event handler for click event for answers
 // within renderQuestion function

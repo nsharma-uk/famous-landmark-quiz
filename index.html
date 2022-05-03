@@ -24,7 +24,7 @@
     </header>
 
     <!--First page - Main section for the quiz-->
-    <main class="mani" id="main">
+    <main class="main" id="main">
       <section id="start-quiz-section" class="section">
         <h2>Famous Landmarks Quiz</h1>
         <hr>
@@ -46,26 +46,42 @@
     </section>
 
 <!-- question section dynamically rendered via JS -->
-<!-- 
-      <section class="section-question-container"
-      name="questions"
-      data-question-index="1"
-      >
-      <div="div-section-title">
-        <h2 class="section-title">
-          "In which country would you find the Wadi Rum?"
-        </h2> 
-        <hr class="section-hr">
-        </div>
-          <div="div-answer-list">
-        <ul class="answer-list"> 
-          <li class="list-item" data-value="a">Syria</li>
-          <li class="list-item" data-value="b">Jordan</li>
-          <li class="list-item" data-value="c">Lebanon</li>
-          <li class="list-item" data-value="d">Iraq</li>
-        </ul>
-      </div> 
-      </section> -->
+
+
+<!-- Your score dynamically rendered via JS-->
+
+<section id="results-section">
+
+  <h2 id="your-score"> Your Score</h2>
+  <hr id="results-hr">
+  <p id="results-p1">Congratulations on completing the quiz.</p>
+  <p id="results-p2">You scored ______ out of 8.</p>
+  <p id="results-p3">You can now see if you are on the leader board</p>
+<form>
+<div id="div-input-full-name">
+ 
+    <input type="text" id="fname" name="fname" value="Enter your full name here"></div>
+
+    <div id="div-submit-to-high-scores">
+    <button type="submit" id="submit-to-high-scores-button" class="high-score-button">Submit your score to leader board</button>
+</div>
+<div id="div-retake quiz">
+  <button type="submit" id="retake-quiz-button" class="retake-button">Submit your score to leader board</button>
+</div>
+
+
+
+</form>
+
+
+
+
+
+
+
+</section>
+   
+
 
 
 
