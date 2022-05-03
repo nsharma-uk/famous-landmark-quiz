@@ -85,65 +85,23 @@ let timer = 100;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 let score = 0;
+let answerIndex = 0;
+let correctAnswers = 0;
+
+const initialisedLocalStorage = () => {
+
+  const feedbackChoicesFromLS = JSON.parse(
+    localStorage.getItem("choicesResults")
+  );
+
+if (!feedbackChoicesFromLS) {
+  //get feedbackChoices fro LS
+  localStorage.setItem("choicesResults", JSON.stringify([]));
+
+}};
 
 
-
-const readFromLocalStorage = (key) => {
-  // get from LS using key name
-
-  const scoresFromLS = localStorage.getItem(key);
-
-  // parse data from LS
-  const parsedScores = JSON.parse(scoresFromLS);
-
-  if (parsedData) {
-    return parsedData;
-  } else {
-    return defaultValue;
-  }
-};
-
-const getScoresFromLS = () => {
-
-    // get from LS using key name
-  const scoresFromLS = localStorage.getItem(scoresFromLocalStorage);
-
-  // parse data from LS
-  const parsedScoresFromLS = JSON.parse(resultScores);
-
-  const StoreOnLS = localStorage.getItem("storedScores");
-
-  // check if high scores exists in LS
-
-  // if false then set high scores to empty array in LS
-};
-
-const resultScores = () => {}
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const resultScores = () => {};
 
 //event handler for click event for answers
 // within renderQuestion function
@@ -195,13 +153,6 @@ const handleChoiceClick = (event) => {
 //declare function to render the results in function choiceHandleClick
 const renderResults = () => {
   console.log("render results");
-};
-
-const renderForm = () => {
-  // use HTML as guide and build in JS
-  // append section to main
-  // add submit event handler to form
-  console.log("render form");
 };
 
 //declare function to remove question from page
@@ -306,23 +257,28 @@ const startTimer = () => {
     // decrement timer value
     timerValue -= 1;
 
-    // if quizComplete is true then stop timer
+    // set text to new timer figures
+    timerSpan.textContent = timerValue;
+
+    // if quizComplete is true: stop timer
     if (quizComplete) {
       clearInterval(timerID);
     } else {
-      // check if timer reaches 0
+      //check if timer reaches 0
       if (timerValue <= 0) {
-        clearInterval(timerID);
+        clearInterval(timerId);
 
-        // if true render game over
-        renderQuestionSection();
+        //if true render game over
+        renderGameOver();
       }
     }
   };
-
   // setInterval of 1000ms (1s)
   const timerID = setInterval(countdown, 1000);
 };
+
+//adding event listener function as a higher order function
+//startButton.addEventListener("click", handleTimerButton);    TO DO
 
 const validateAnswer = () => {
   // get answer clicked from user
@@ -353,15 +309,91 @@ const renderTimerSection = () => {
   // append section to main
 };
 
-const renderQuestionSection = () => {
-  // use HTML as guide and build in JS
-  // append section to main
-  // add click event listener on #question-section
+const renderForm = () => {
+  //create section
+  const sectionResult = document.createElement("section");
+  sectionResult.setAttribute("class", "results-section");
+  sectionResult.setAttribute("id", "results-section-id");
+
+  //create div
+  const divResultDiv = document.createElement("div");
+  divResultDiv.setAttribute("class", "results-div");
+
+  //create h2
+  const h2Result = document.createElement("h2");
+  h2.setAttribute("class", "your-score");
+  h2.textContent = "Your Score";
+
+  //paragraphs
+  const pResult1 = document.createElement("p");
+  pResult1.textContent =
+    "Congratulations on completing the quiz! You scored ______ out of 8";
+  const pResult2 = document.createElement("p");
+  pResult2.textContent = "You can now see if you are on the leader board";
+
+  //create hr
+  const hrResult = document.createElement("hr");
+  hrResult.setAttribute("class", "results-hr");
+
+  //append child <h2> and <hr> and <p> to parent div
+  divResultDiv.append(h2, hr, p);
+
+  //create form
+  const form = document.createElement("form");
+  form.setAttribute("id", "results-form");
+
+  //create div
+  const divInputName = document.createElement("div");
+  divInputName.setAttribute("id", "div-input-full-name");
+
+  //create input
+  const input = document.createElement("input");
+  input.setAttribute("id", "fname");
+  input.value = "Your name here...";
+
+  ////create div
+  const divSubmit = document.createElement("div");
+  divSubmit.setAttribute("id", "div-input-full-name");
+
+  //create submit button
+  const submitScoresBtn = document.createElement("button");
+  submitScoresBtn.setAttribute("id", "submit-to-high-scores-button");
+  submitScoresBtn.textContent = "Submit your score to the leader board";
+
+  //create div
+  const divViewScores = document.createElement("div");
+  divViewScores.setAttribute("id", "div-view-scores");
+
+  //create view high scores on different page button
+  const viewScoresBtn = document.createElement("button");
+  viewScoresBtn.setAttribute("id", "view-scores-button");
+  viewScoresBtn.textContent =
+    "View high scores table without submitting your answer";
+
+  //append children to parents
+  divViewScores.append(submitScoresBtn);
+  divInputName.append(input);
+  divSubmit.append(submitScoresBtn);
+  form.append(divViewScores, divInputName, divViewScores);
+
+  sectionResult.append(divResultDiv, form);
+
+  mainElement.append(sectionResult);
+  console.log("rendered form");
+
+  // add submit event handler to form
+  sectionResult.add;
 };
 
 const renderGameOver = () => {
   // use HTML as guide and build in JS
   // append section to main
+};
+
+////declare function to remove quiz from page
+const removeQuizPage = () => {
+  console.log("remove quiz page");
+  removeQuizPage.remove();
 };
 
 const renderAlert = (message, status) => {
@@ -377,14 +409,3 @@ const renderQuizCompleteSection = () => {
   // use HTML as guide and build in JS
   // append section to main
 };
-
-const startQuiz = () => {
-  // remove start section
-  // start timer
-  // render timer section
-  // render question section
-};
-
-// add event listeners
-// add document on load event listener
-// add start button click event listener

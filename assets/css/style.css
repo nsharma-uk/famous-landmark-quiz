@@ -44,7 +44,7 @@ a:hover {
 }
 
 p {
-  padding: 10px;
+  padding: .6rem;
 }
 header {
   background-color: var(--onyx);
@@ -106,7 +106,7 @@ hr {
 /* start of button styles */
 
 .section-question-container {
-  align-objects: center;
+  align-items: center;
   background-color: var(--cadet-blue-crayola);
   width: 50%;
   border: 2px solid var(--onyx);
@@ -208,6 +208,88 @@ hr {
   background-color: var(--sonic-silver);
 }
 
+/*End of questions section styling*/
+
+/*Start of results form section styling*/
+
+.results-section {
+  align-items: center;
+  background-color: var(--cadet-blue-crayola);
+  width: 50%;
+  border: 2px solid var(--onyx);
+  padding: 3rem;
+  margin: auto;
+  margin-top: 7rem;
+  margin-bottom: 8rem;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+}
+
+#results-form{
+  width: 100%;
+  align-items: center;
+   
+}
+
+.answer-list {
+  width: 95%;
+  border: 2px solid var(--onyx);
+  align-items: center;
+}
+
+
+#fname {
+  background-color: var(--cultured);
+  font-size: 1.6rem;
+  color: var(--eerie-black);
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin: 2rem;
+  width: 90%;
+} 
+
+.high-score-button, .retake-button, .view-high-score-button {
+  background-color: lightgrey;
+  font-size: 1.6rem;
+  color: var(--eerie-black);
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin: 1rem;
+  list-style-type: none;
+  width: 90%;
+ 
+}
+.retake-button:hover {
+  cursor: pointer;
+  background-color: var(--sonic-silver);
+   
+}
+
+#div-input-full-name, 
+#div-submit-to-high-scores,
+#div-retake-quiz,
+#div-view-scores {
+
+  width:100%,
+  border: 2px solid var(--onyx);
+}
+
+.high-score-button:hover {
+  cursor: pointer;
+  background-color: var(--sonic-silver);
+   
+}
+
+.view-high-score-button:hover {
+  cursor: pointer;
+  background-color: var(--sonic-silver);
+  
+}
+
+/*End of results form section styling*/
+
 /*MEDIA QUERIES */
 
 /*tablets*/
@@ -223,6 +305,11 @@ hr {
   .section-question-container {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    width: 90%;
+  }
+  .results-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 90%;
   }
 }
@@ -245,6 +332,12 @@ hr {
   }
 
   .section-question-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 95%;
+  }
+
+  .results-section {
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 95%;
