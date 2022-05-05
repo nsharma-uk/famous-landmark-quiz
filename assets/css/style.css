@@ -93,7 +93,7 @@ hr {
   text-align: center;
   font-size: 1.8rem;
   background-color: var(--cadet-blue-crayola);
-  width: 80%;
+  width: 60%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -108,7 +108,7 @@ hr {
 .section-question-container {
   align-items: center;
   background-color: var(--cadet-blue-crayola);
-  width: 50%;
+  width: 60%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -172,7 +172,7 @@ hr {
 .section-question-container {
   align-items: center;
   background-color: var(--cadet-blue-crayola);
-  width: 50%;
+  width: 60%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -213,9 +213,9 @@ hr {
 /*Start of results form section styling*/
 
 .results-section {
-  align-items: center;
+  
   background-color: var(--cadet-blue-crayola);
-  width: 50%;
+  width: 80%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -249,7 +249,7 @@ hr {
   width: 90%;
 } 
 
-.high-score-button, .retake-button, .view-high-score-button {
+.high-score-button, .view-high-score-button {
   background-color: lightgrey;
   font-size: 1.6rem;
   color: var(--eerie-black);
@@ -269,12 +269,15 @@ hr {
 
 #div-input-full-name, 
 #div-submit-to-high-scores,
-#div-retake-quiz,
 #div-view-scores {
 
   width:100%,
   border: 2px solid var(--onyx);
 }
+
+
+
+
 
 .high-score-button:hover {
   cursor: pointer;
