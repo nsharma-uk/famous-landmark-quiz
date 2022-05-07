@@ -44,7 +44,7 @@ a:hover {
 }
 
 p {
-  padding: .6rem;
+  padding: 0.6rem;
 }
 header {
   background-color: var(--onyx);
@@ -167,6 +167,28 @@ hr {
 
 /* End of webpage footer styles
 
+/* timer styling*/
+
+.timer-section{
+
+  text-align: center;
+  background-color: var(--cadet-blue-crayola);
+  width: 30%;
+  border: 2px solid var(--onyx);
+  padding: 1.5rem;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 0.4rem;
+  font-size: 2rem; 
+}
+
+.timer-span {
+
+  font-size: 4rem; 
+}
+
+
+
 /*Start of questions section styling*/
 
 .section-question-container {
@@ -176,14 +198,15 @@ hr {
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
-  margin-top: 7rem;
+  margin-top: 3rem;
   margin-bottom: 8rem;
   border-radius: 0.4rem;
 }
 
 .div-answer-list {
   width: 100%;
-  align-items: center;
+  text
+  text-align: center;
 }
 
 .answer-list {
@@ -213,7 +236,6 @@ hr {
 /*Start of results form section styling*/
 
 .results-section {
-  
   background-color: var(--cadet-blue-crayola);
   width: 80%;
   border: 2px solid var(--onyx);
@@ -223,12 +245,12 @@ hr {
   margin-bottom: 8rem;
   border-radius: 0.4rem;
   font-size: 1.8rem;
+  text-align: center;
 }
 
-#results-form{
+#results-form {
   width: 100%;
   align-items: center;
-   
 }
 
 .answer-list {
@@ -236,7 +258,6 @@ hr {
   border: 2px solid var(--onyx);
   align-items: center;
 }
-
 
 #fname {
   background-color: var(--cultured);
@@ -246,49 +267,35 @@ hr {
   border-radius: 0.4rem;
   text-align: center;
   margin: 2rem;
-  width: 90%;
-} 
+  width: 40%;
+}
 
-.high-score-button, .view-high-score-button {
-  background-color: lightgrey;
+#div-submit-to-high-scores {
   font-size: 1.6rem;
   color: var(--eerie-black);
+  border-radius: 0.4rem;
+  text-align: center;
+  margin: auto;
+  list-style-type: none;
+  width: 90%;
+}
+
+.high-score-button {
+  background-color: lightgrey;
+  font-size: 24px;
+  color: var(--eerie-black);
+  width: 90%;
+  border: none;
   padding: 1.5rem;
   border-radius: 0.4rem;
   text-align: center;
-  margin: 1rem;
-  list-style-type: none;
-  width: 90%;
- 
+  margin-top: 2rem;
+  overflow: hidden;
 }
-.retake-button:hover {
-  cursor: pointer;
-  background-color: var(--sonic-silver);
-   
-}
-
-#div-input-full-name, 
-#div-submit-to-high-scores,
-#div-view-scores {
-
-  width:100%,
-  border: 2px solid var(--onyx);
-}
-
-
-
-
 
 .high-score-button:hover {
   cursor: pointer;
   background-color: var(--sonic-silver);
-   
-}
-
-.view-high-score-button:hover {
-  cursor: pointer;
-  background-color: var(--sonic-silver);
-  
 }
 
 /*End of results form section styling*/

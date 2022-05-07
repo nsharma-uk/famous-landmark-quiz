@@ -77,11 +77,7 @@ const startQuizSection = document.getElementById("start-quiz-section");
 //target the start quiz button id on index.html document
 const startButton = document.getElementById("start-quiz-button");
 
-//target the timer span index.html document
-const timerSpan = document.getElementById("timer-span");
-
 let questionIndex = 0;
-let timer = 100;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 let score = 0;
@@ -117,12 +113,13 @@ const storeInLS = (key, value) => {
     arrayFromLS = myArray;
     console.log("arrayFromLS: " + arrayFromLS);
   } else {
+     // push answer in to array
     arrayFromLS.push(value);
   }
 
-  // push answer in to array
+ 
 
-  // set feedbackResults in LS
+  // set in LS
   localStorage.setItem(key, JSON.stringify(arrayFromLS));
 };
 
@@ -165,7 +162,7 @@ const renderForm = () => {
   //create input
   const input = document.createElement("input");
   input.setAttribute("id", "fname");
-  input.value = "Your name here...";
+  input.placeholder = "Your name here...";
 
   ////create div
   const divSubmit = document.createElement("div");
@@ -174,24 +171,14 @@ const renderForm = () => {
   //create submit button
   const submitScoresBtn = document.createElement("button");
   submitScoresBtn.setAttribute("id", "submit-to-high-scores-button");
-  submitScoresBtn.setAttribute("class", "high-score button");
+  submitScoresBtn.setAttribute("class", "high-score-button");
   submitScoresBtn.textContent = "Submit your score to the leader board";
 
-  //create div
-  const divViewScores = document.createElement("div");
-  divViewScores.setAttribute("id", "div-view-scores");
-
-  //create view high scores on different page button
-  const viewScoresBtn = document.createElement("button");
-  viewScoresBtn.setAttribute("id", "view-scores-button");
-  viewScoresBtn.setAttribute("class", "view-high-score button");
-  viewScoresBtn.textContent = "View leader board without submitting your score";
-
   //append children to parents
-  divViewScores.append(viewScoresBtn);
+
   divInputName.append(input);
   divSubmit.append(submitScoresBtn);
-  form.append(divInputName, divSubmit, divViewScores);
+  form.append(divInputName, divSubmit);
 
   sectionResult.append(divResultDiv, form);
 
@@ -224,8 +211,6 @@ const handleChoiceClick = (event) => {
       console.log("incorrect"); // if incorrect subtract 5 seconds from timerValue
       timerValue -= 5;
 
-      //TO DO renderQUestionWrongAlert function -> if incorrect render error alert with message and status
-      renderAlert();
       if (questionIndex < questions.length - 1) {
         //go to the next question
         questionIndex += 1;
@@ -364,7 +349,14 @@ const handleStartButtonClick = () => {
   removeStartSection();
 
   //render questions
+
   renderQuestion();
+
+  //render timer
+  renderTimerSection();
+
+  //
+  startTimer();
 };
 
 //add event listener to start quiz button
@@ -375,6 +367,7 @@ startButton.addEventListener("click", handleStartButtonClick);
 
 //start timer
 const startTimer = () => {
+  const timerID = setInterval(updateTimerValue, 1000);
   // declare function to execute every 1 sec
   const countdown = () => {
     // decrement timer value
@@ -385,15 +378,18 @@ const startTimer = () => {
 
     // if quizComplete is true: stop timer
     if (quizComplete) {
-      clearInterval(timerID);
+      clearInterval(countdown);
     } else {
-      //check if timer reaches 0
-      if (timerValue <= 0) {
-        clearInterval(timerId);
+      const updateTimer = document.getElementById("timer-span");
 
-        //if true render game over
-        renderGameOver();
-      }
+      updateTimer.textContent = timerValue;
+    }
+    //check if timer reaches 0
+    if (timerValue === 0) {
+      clearInterval(timerId);
+
+      //if true render game over
+      renderGameOver();
     }
   };
 };
@@ -413,7 +409,6 @@ const validateAnswer = (event) => {
     timerValue -= 5;
 
     //TO DO renderQUestionWrongAlert function -> if incorrect render error alert with message and status
-    renderAlert();
   } else if (questionIndex < questions.length - 1) {
     // if question is not last question then increment question index and render next question
     questionIndex += 1;
@@ -422,12 +417,6 @@ const validateAnswer = (event) => {
   } else {
     console.log("hello");
   }
-
-  // set timeout for 500ms and then go to next question
-
-  // if question is last question set quizComplete to true and then render form
-
-  // if question is not last question then increment question index and render next question
 };
 
 const handleFormSubmit = () => {
@@ -444,13 +433,25 @@ const handleFormSubmit = () => {
 
 const renderTimerSection = () => {
   // use HTML as guide and build in JS
-  // append section to main
+
+  const timerSection = document.createElement("section");
+  timerSection.setAttribute("class", "timer-section");
+
+  const timerDiv = document.createElement("div");
+  timerDiv.setAttribute("class", "timer-div");
+  timerDiv.innerText = "Time Left: ";
+
+  const timerSpan = document.createElement("span");
+  timerSpan.setAttribute("id", "timer-span");
+  timerSpan.textContent = `${timerValue} seconds`;
+
+  // append children to parents
+  timerSection.appendChild(timerDiv);
+  timerDiv.appendChild(timerSpan);
+  mainElement.append(timerSection);
 };
 
-const renderGameOver = () => {
-  // use HTML as guide and build in JS
-  // append section to main
-};
+const renderGameOver = () => {};
 
 ////declare function to remove quiz from page
 const removeQuizPage = () => {
