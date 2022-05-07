@@ -87,7 +87,7 @@ hr {
 }
 /*end of header styles*/
 
-/*Start of <main> styles */
+/*Start of <main> 1st page styles */
 
 .section {
   text-align: center;
@@ -110,7 +110,7 @@ hr {
   background-color: var(--cadet-blue-crayola);
   width: 60%;
   border: 2px solid var(--onyx);
-  padding: 3rem;
+  padding: 1.5rem;
   margin: auto;
   margin-top: 7rem;
   margin-bottom: 8rem;
@@ -169,8 +169,7 @@ hr {
 
 /* timer styling*/
 
-.timer-section{
-
+.timer-section {
   text-align: center;
   background-color: var(--cadet-blue-crayola);
   width: 30%;
@@ -179,22 +178,19 @@ hr {
   margin: auto;
   margin-top: 3rem;
   border-radius: 0.4rem;
-  font-size: 2rem; 
+  font-size: 2rem;
 }
 
 .timer-span {
-
-  font-size: 4rem; 
+  font-size: 4rem;
 }
-
-
 
 /*Start of questions section styling*/
 
 .section-question-container {
   align-items: center;
   background-color: var(--cadet-blue-crayola);
-  width: 60%;
+  width: 80%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -204,15 +200,19 @@ hr {
 }
 
 .div-answer-list {
+  display: flex;
   width: 100%;
-  text
   text-align: center;
+  margin: auto;
+  border: solid 1px red;
 }
 
 .answer-list {
   width: 95%;
-
   align-items: center;
+  margin: auto;
+  border: solid 1px yellow;
+  padding: 0;
 }
 
 .list-item {
@@ -222,9 +222,11 @@ hr {
   padding: 1.5rem;
   border-radius: 0.4rem;
   text-align: center;
-  margin: 2rem;
+  margin: auto;
+  margin-top: 2rem;
   list-style-type: none;
   width: 90%;
+  text-decoration: none;
 }
 .list-item:hover {
   cursor: pointer;
@@ -237,7 +239,7 @@ hr {
 
 .results-section {
   background-color: var(--cadet-blue-crayola);
-  width: 80%;
+  width: 60%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -254,14 +256,14 @@ hr {
 }
 
 .answer-list {
-  width: 95%;
+  width: 80%;
   border: 2px solid var(--onyx);
   align-items: center;
 }
 
 #fname {
   background-color: var(--cultured);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--eerie-black);
   padding: 1.5rem;
   border-radius: 0.4rem;
@@ -282,7 +284,7 @@ hr {
 
 .high-score-button {
   background-color: lightgrey;
-  font-size: 24px;
+  font-size: 1.6rem;
   color: var(--eerie-black);
   width: 90%;
   border: none;
@@ -311,17 +313,23 @@ hr {
   .section {
     width: 90%;
   }
+}
+.timer-section {
+  width: 90%;
+}
 
-  .section-question-container {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 90%;
-  }
-  .results-section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 90%;
-  }
+.section-question-container {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 90%;
+}
+.results-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 90%;
+}
+.answer-list {
+  padding: 0;
 }
 
 /*phones*/
@@ -334,7 +342,13 @@ hr {
   .section {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    line-height: 1.5;
   }
+
+  #start-quiz-button {
+    width: 100%;
+  }
+
   .footer-container {
     display: flex;
     flex-direction: column;
@@ -342,14 +356,40 @@ hr {
   }
 
   .section-question-container {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 95%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 98%;
+  }
+  .timer-section {
+    width: 98%;
   }
 
+  .timer-span {
+    font-size: 4rem;
+  }
   .results-section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 95%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    line-height: 1.5;
+  }
+
+  #fname {
+    width: 90%;
+  }
+  .answer-list {
+    padding: 0;
+    margin: auto;
+    width: 100%;
+  }
+
+  #div-submit-to-high-scores {
+    font-size: 1.6rem;
+    color: var(--eerie-black);
+    border-radius: 0.4rem;
+    text-align: center;
+    margin: auto;
+    list-style-type: none;
+    width: 90%;
   }
 }

@@ -113,11 +113,9 @@ const storeInLS = (key, value) => {
     arrayFromLS = myArray;
     console.log("arrayFromLS: " + arrayFromLS);
   } else {
-     // push answer in to array
+    // push answer in to array
     arrayFromLS.push(value);
   }
-
- 
 
   // set in LS
   localStorage.setItem(key, JSON.stringify(arrayFromLS));
@@ -224,6 +222,7 @@ const handleChoiceClick = (event) => {
         //go to the last question amd render  form with scores
         //remove questions
         removeQuestion();
+        removeTimerSection();
         renderResults();
         renderForm();
       }
@@ -245,6 +244,7 @@ const handleChoiceClick = (event) => {
         //go to the last question amd render  form with scores
         //remove questions
         removeQuestion();
+        removeTimerSection();
         renderResults();
         renderForm();
       }
@@ -261,6 +261,11 @@ const renderResults = () => {
 const removeQuestion = () => {
   console.log("remove question");
   document.getElementById("question-container").remove();
+};
+//declare function to remove timer from page
+const removeTimerSection = () => {
+  console.log("remove timer");
+  document.getElementById("timer-section-id").remove();
 };
 
 //declare function to render questions to page
@@ -348,15 +353,14 @@ const handleStartButtonClick = () => {
   //remove start section
   removeStartSection();
 
-  //render questions
-
-  renderQuestion();
-
   //render timer
   renderTimerSection();
 
-  //
+  //start timer
   startTimer();
+  //render questions
+
+  renderQuestion();
 };
 
 //add event listener to start quiz button
@@ -367,31 +371,30 @@ startButton.addEventListener("click", handleStartButtonClick);
 
 //start timer
 const startTimer = () => {
-  const timerID = setInterval(updateTimerValue, 1000);
   // declare function to execute every 1 sec
-  const countdown = () => {
+  const updateTimerValue = () => {
     // decrement timer value
     timerValue -= 1;
-
-    // set text to new timer figures
-    timerSpan.textContent = timerValue;
-
+    //target the update timer
+    const updateTimer = document.getElementById("timer-span");
     // if quizComplete is true: stop timer
     if (quizComplete) {
-      clearInterval(countdown);
+      clearInterval(timerId);
+      document.getElementById("question-container").remove;
     } else {
+      // set text to new timer figures
       const updateTimer = document.getElementById("timer-span");
-
       updateTimer.textContent = timerValue;
     }
     //check if timer reaches 0
-    if (timerValue === 0) {
-      clearInterval(timerId);
+    if (timerValue <= 0) {
+      clearInterval(timerId); //NOT SURE ABOUT THIS
 
       //if true render game over
       renderGameOver();
     }
   };
+  const timerId = setInterval(updateTimerValue, 1000);
 };
 
 const validateAnswer = (event) => {
@@ -436,14 +439,15 @@ const renderTimerSection = () => {
 
   const timerSection = document.createElement("section");
   timerSection.setAttribute("class", "timer-section");
+  timerSection.setAttribute("id", "timer-section-id");
 
   const timerDiv = document.createElement("div");
   timerDiv.setAttribute("class", "timer-div");
-  timerDiv.innerText = "Time Left: ";
+  timerDiv.innerText = "Time Left in seconds: ";
 
   const timerSpan = document.createElement("span");
   timerSpan.setAttribute("id", "timer-span");
-  timerSpan.textContent = `${timerValue} seconds`;
+  timerSpan.textContent = timerValue;
 
   // append children to parents
   timerSection.appendChild(timerDiv);
@@ -451,7 +455,7 @@ const renderTimerSection = () => {
   mainElement.append(timerSection);
 };
 
-const renderGameOver = () => {};
+/*const renderGameOver = () => {};
 
 ////declare function to remove quiz from page
 const removeQuizPage = () => {
@@ -467,4 +471,4 @@ const renderAlert = (message, status) => {
 
 // use HTML as guide and build in JS
 // append section to main
-// add submit event handler to form
+// add submit event handler to form*/
