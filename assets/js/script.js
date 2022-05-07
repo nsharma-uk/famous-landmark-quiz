@@ -1,4 +1,4 @@
-// delcare array of questions
+// declare array of questions
 const questions = [
   {
     questionText: "In which country would you find the Wadi Rum?",
@@ -389,7 +389,7 @@ const startTimer = () => {
     //check if timer reaches 0
     if (timerValue <= 0) {
       clearInterval(timerId); //NOT SURE ABOUT THIS
-
+      document.getElementById("question-container").remove;
       //if true render game over
       renderGameOver();
     }
