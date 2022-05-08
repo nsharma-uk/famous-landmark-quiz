@@ -204,7 +204,6 @@ hr {
   width: 100%;
   text-align: center;
   margin: auto;
-   
 }
 
 .answer-list {
@@ -254,15 +253,9 @@ hr {
   align-items: center;
 }
 
-.answer-list {
-  width: 80%;
-  border: 2px solid var(--onyx);
-  align-items: center;
-}
-
 #fname {
   background-color: var(--cultured);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--eerie-black);
   padding: 1.5rem;
   border-radius: 0.4rem;
@@ -322,7 +315,6 @@ hr {
   width: 100%;
   text-align: center;
   margin: auto;
-   
 }
 
 #retry-button {

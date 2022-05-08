@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This project modifies starter code to create an application that enables employees, with access to sensitive data, to generate random passwords based on criteria that they’ve selected and which provides greater security.
+In this project a timed coding quiz with multiple-choice questions was built. This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface.
 <br>
 <br>
 
@@ -23,7 +23,7 @@ This project modifies starter code to create an application that enables employe
 - JavaScript
 
 - GitHub
--Web APIs
+- Web APIs
   <br>
   <br>
 
@@ -75,7 +75,7 @@ THEN the password is either displayed in an alert or written to the page
 
 Deployed page
 
-![screenshot of deployed page](./assests/images/passgendeployedpage.png)
+![screenshot of deployed page](assets/images/startquizwebpage.png) 
 <br>
 <br>
 Prompt asking for input of chosen password length

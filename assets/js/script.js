@@ -121,7 +121,8 @@ const renderForm = () => {
   const pResult1 = document.createElement("p");
   pResult1.textContent = `Congratulations on completing the quiz! You scored ${timerValue}`;
   const pResult2 = document.createElement("p");
-  pResult2.textContent = "You can now see if you are on the leader board";
+  pResult2.textContent =
+    "If you would like to submit your score to the scoreboard please input your name";
 
   //create hr
   const hrResult = document.createElement("hr");
@@ -151,7 +152,7 @@ const renderForm = () => {
   const submitScoresBtn = document.createElement("button");
   submitScoresBtn.setAttribute("id", "submit-to-high-scores-button");
   submitScoresBtn.setAttribute("class", "high-score-button");
-  submitScoresBtn.textContent = "Submit your score to the leader board";
+  submitScoresBtn.textContent = "Submit your score";
 
   //append children to parents
 
