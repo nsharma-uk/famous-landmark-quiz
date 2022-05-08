@@ -10,10 +10,11 @@ In this project a timed coding quiz with multiple-choice questions was built. Th
 
 [Deployed page](https://nsharma-uk.github.io/famous-landmark-quiz/)
 
-
 [Repository](https://github.com/nsharma-uk/landmark-quiz)
 <br>
 <br>
+
+![screenshot of deployed page](/assets/images/startquizwebpage.png)
 
 ## Technologies
 
@@ -27,69 +28,63 @@ In this project a timed coding quiz with multiple-choice questions was built. Th
   <br>
   <br>
 
-## Project Details - User Story
+## Project Details - User Story 
+<br>
+AS A user
 
-AS AN employee with access to sensitive data
+I WANT to take a timed quiz on landmarks around the world that stores high scores
 
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
+SO THAT I test my knowledge compared to other users
+
+
 <br>
 <br>
 
 ## Project Details - Acceptance Criteria
+<br>
 
-GIVEN I need a new, secure password
+GIVEN I am taking a quiz
 
-WHEN I click the button to generate a password
+WHEN I click the start button
 
-THEN I am presented with a series of prompts for password criteria
+THEN a timer starts and I am presented with a question
 
-WHEN prompted for password criteria
+WHEN I answer a question
 
-THEN I select which criteria to include in the password
+THEN I am presented with another question
 
-WHEN prompted for the length of the password
+WHEN I answer a question incorrectly
 
-THEN I choose a length of at least 8 characters and no more
-than 128 characters
+THEN time is subtracted from the clock
 
-WHEN asked for character types to include in the password
+WHEN all questions are answered or the timer reaches 0
 
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+THEN the game is over
 
-WHEN I answer each prompt
+WHEN the game is over
 
-THEN my input should be validated and at least one character type should be selected
+THEN I can save my name and my score
 
-WHEN all prompts are answered
 
-THEN a password is generated that matches the selected criteria
-
-WHEN the password is generated
-
-THEN the password is either displayed in an alert or written to the page
-
+<br>
 <br>
 
 ## Screenshots
 
-Deployed page
+ <br>
+Example 1 of a multiple choice question
 
-![screenshot of deployed page](assets/images/startquizwebpage.png) 
+![screenshot of example of a question page](./assets/images/questionsinquiz.png)
+
 <br>
 <br>
-Prompt asking for input of chosen password length
+Example 2 of a multiple choice question
 
-![Prompt box asking for password length](./assests/images/firstpromptbox.png)
+![screenshot of example of a question page](./assets/images/questionsinquiz2.png)
 <br>
 <br>
-Prompt asking if user wants lowercase in their password
-
-![Prompt box asking if want lowercase in password](./assests/images/lowercase.png)
-
-Alert message telling user that they need to select at least one criteria.
-
-![Prompt box asking for password length](./assests/images/oops.png)
+The score page to submit the results to scoreboard
+![Screenshot of the scorepage ](/assets/images/scorepage.png)
 
 <br>
 
