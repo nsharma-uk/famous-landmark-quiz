@@ -1,16 +1,13 @@
 //function to trigger what happens on load of the page
 const onLoad = () => {
-          renderHighScoresTable();
-    }
-   //set page load
-  window.addEventListener("load", onLoad);
-
-
+  renderHighScoresTable();
+};
+//set page load
+window.addEventListener("load", onLoad);
 
 renderHighScoresTable = () => {
-  const main = document.createElement("main");
-  main.setAttribute("class", "main");
-
+  //target main id on highscores.html
+  const mainHigh = document.getElementById("main-high");
   //create section
   const section = document.createElement("section");
   section.setAttribute("class", "high-score-section");
@@ -38,8 +35,8 @@ renderHighScoresTable = () => {
 
   //create div
   const divButtonSection = document.createElement("div");
-  divTableSection.setAttribute("class", "button-section-div");
-  divTableSection.textContent = "You can now see if you are on the leader board";
+  divButtonSection.setAttribute("class", "button-section-div");
+  
 
   //create 2 buttons
   const retryButton = document.createElement("button");
@@ -56,7 +53,5 @@ renderHighScoresTable = () => {
   section.append(h2, hr, divTableSection);
   divButtonSection.append(retryButton, clearScoresButton);
   section.append(divTableSection, divButtonSection);
-  main.append(section);
- };
-
-
+  mainHigh.append(section);
+};

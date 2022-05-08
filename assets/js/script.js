@@ -81,44 +81,25 @@ let questionIndex = 0;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 let score = 0;
+let timerId;
 
-const initialiseLocalStorage = () => {
-  // get answer Results from LS
-  const ResultsFromLS = JSON.parse(localStorage.getItem("answerResults"));
+//local storage
 
-  const allResultsFromLS = JSON.parse(localStorage.getItem("allResults"));
-
-  if (!ResultsFromLS) {
-    // if not exist set LS to have answerResults as an empty array
-    localStorage.setItem("answerResults", JSON.stringify([]));
-  }
-
-  if (!allResultsFromLS) {
-    // if not exist set LS to have feedbackResults as an empty array
-    localStorage.setItem("allResults", JSON.stringify([]));
-  }
-};
-
-const storeInLS = (key, value) => {
-  // get feedbackResults from LS
-  let arrayFromLS = JSON.parse(localStorage.getItem(key));
-
-  // if arrayFromLs is not null and of type array only then execute line 113
-  // and operator &&
-  // || OR operator
-  if (arrayFromLS === null) {
-    // create a new array, push your key value to it
-    let myArray = [];
-    myArray.push(value);
-    arrayFromLS = myArray;
-    console.log("arrayFromLS: " + arrayFromLS);
+const displayResults = (event) => {
+  //display name
+  event.preventDefault();
+  //get initials from form
+  const fullName = document.getElementById("fname").value;
+  if (initials) {
+    const yourScore = {
+      initials,
+      score: timerId,
+    };
+    console.log ()
+    storeInLS("feedbackResults", yourScore);
   } else {
-    // push answer in to array
-    arrayFromLS.push(value);
+    alert("Please input your ");
   }
-
-  // set in LS
-  localStorage.setItem(key, JSON.stringify(arrayFromLS));
 };
 
 const renderForm = () => {
@@ -138,7 +119,7 @@ const renderForm = () => {
 
   //paragraphs
   const pResult1 = document.createElement("p");
-  pResult1.textContent = `Congratulations on completing the quiz! You scored ${score} out of 8`;
+  pResult1.textContent = `Congratulations on completing the quiz! You scored ${timerValue}`;
   const pResult2 = document.createElement("p");
   pResult2.textContent = "You can now see if you are on the leader board";
 
@@ -200,13 +181,12 @@ const handleChoiceClick = (event) => {
     //get the option the user clicked on
     const value = target.getAttribute("data-value");
 
-    console.log(value);
     //get the question the user answered
     const correctAnswer = questions[questionIndex].correctAnswer;
 
     // compare the 2 answers
     if (value !== correctAnswer) {
-      console.log("incorrect"); // if incorrect subtract 5 seconds from timerValue
+      // if incorrect subtract 5 seconds from timerValue
       timerValue -= 5;
 
       if (questionIndex < questions.length - 1) {
@@ -227,8 +207,6 @@ const handleChoiceClick = (event) => {
         renderForm();
       }
     } else {
-      console.log("correct");
-
       score += 1;
       //if it's not the last question
       if (questionIndex < questions.length - 1) {
@@ -243,6 +221,7 @@ const handleChoiceClick = (event) => {
       } else {
         //go to the last question amd render  form with scores
         //remove questions
+        clearInterval(timerId);
         removeQuestion();
         removeTimerSection();
         renderResults();
@@ -259,12 +238,10 @@ const renderResults = () => {
 
 //declare function to remove question from page
 const removeQuestion = () => {
-  console.log("remove question");
   document.getElementById("question-container").remove();
 };
 //declare function to remove timer from page
 const removeTimerSection = () => {
-  console.log("remove timer");
   document.getElementById("timer-section-id").remove();
 };
 
@@ -343,13 +320,10 @@ const renderQuestion = () => {
 
 //declare function to remove #start-quiz-section from page
 const removeStartSection = () => {
-  console.log("remove start section");
   startQuizSection.remove();
 };
 //declare event handler for when start button is clicked
 const handleStartButtonClick = () => {
-  console.log("start button clicked");
-
   //remove start section
   removeStartSection();
 
@@ -391,10 +365,14 @@ const startTimer = () => {
       clearInterval(timerId); //NOT SURE ABOUT THIS
       document.getElementById("question-container").remove;
       //if true render game over
-      renderGameOver();
+      removeQuestion();
+      removeTimerSection();
+      renderResults();
+      renderForm();
+      //
     }
   };
-  const timerId = setInterval(updateTimerValue, 1000);
+  timerId = setInterval(updateTimerValue, 1000);
 };
 
 const validateAnswer = (event) => {
@@ -417,23 +395,22 @@ const validateAnswer = (event) => {
     questionIndex += 1;
 
     renderQuestion();
-  } else {
-    console.log("hello");
   }
-};
 
-const handleFormSubmit = () => {
-  // get value from input
-  // check if empty then render error alert with message and status
-  // if not empty then create the score object
-  // {
-  //   fullName: "Bob Smith",
-  //   score: 25
-  // }
-  // push score object to LS
-  // render quizCompleteSection
-};
+  const handleFormSubmit = () => {
+    // get value from input
+    // check if empty then render error alert with message and status
+    // if not empty then create the score object
+    // {
+    //   fullName: "Bob Smith",
+    //   score: 25
+    // }
+    // push score object to LS
+    // render quizCompleteSection
+  };
 
+  startButton.addEventListener("click", handleStartButtonClick);
+};
 const renderTimerSection = () => {
   // use HTML as guide and build in JS
 
@@ -453,15 +430,6 @@ const renderTimerSection = () => {
   timerSection.appendChild(timerDiv);
   timerDiv.appendChild(timerSpan);
   mainElement.append(timerSection);
-};
-
-/*const renderGameOver = () => {};
-
-////declare function to remove quiz from page
-const removeQuizPage = () => {
-  console.log("remove quiz page");
-  removeQuizPage.remove();
-  renderForm();
 };
 
 const renderAlert = (message, status) => {

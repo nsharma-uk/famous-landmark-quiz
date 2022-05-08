@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
 }
 
-.main {
+main {
   flex: 2;
 }
 
@@ -101,7 +101,7 @@ hr {
   margin-bottom: 8rem;
   border-radius: 0.4rem;
 }
-/*End of main styles>
+/*End of <main> styles>
 
 /* start of button styles */
 
@@ -190,7 +190,7 @@ hr {
 .section-question-container {
   align-items: center;
   background-color: var(--cadet-blue-crayola);
-  width: 80%;
+  width: 60%;
   border: 2px solid var(--onyx);
   padding: 3rem;
   margin: auto;
@@ -204,14 +204,14 @@ hr {
   width: 100%;
   text-align: center;
   margin: auto;
-  border: solid 1px red;
+   
 }
 
 .answer-list {
   width: 95%;
   align-items: center;
   margin: auto;
-  border: solid 1px yellow;
+   
   padding: 0;
 }
 
@@ -302,6 +302,65 @@ hr {
 
 /*End of results form section styling*/
 
+/*Start of high scores section styling in highscores.html*/
+
+.high-score-section {
+  text-align: center;
+  font-size: 1.8rem;
+  background-color: var(--cadet-blue-crayola);
+  width: 60%;
+  border: 2px solid var(--onyx);
+  padding: 3rem;
+  margin: auto;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  border-radius: 0.4rem;
+}
+
+.button-section-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+   
+}
+
+#retry-button {
+  background-color: lightgrey;
+  font-size: 24px;
+  color: var(--eerie-black);
+  width: 50%;
+  border: none;
+  padding: 1.5rem;
+  margin: auto;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+#clear-scores-button {
+  background-color: lightgrey;
+  font-size: 24px;
+  color: var(--eerie-black);
+  width: 50%;
+  border: none;
+  padding: 1.5rem;
+  margin: auto;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+#start-quiz-button:hover {
+  cursor: pointer;
+  background-color: var(--davys-grey);
+}
+
+/*End of high scores section styling in highscores.html*/
+
 /*MEDIA QUERIES */
 
 /*tablets*/
@@ -313,25 +372,25 @@ hr {
   .section {
     width: 90%;
   }
-}
-.timer-section {
-  width: 90%;
-}
 
-.section-question-container {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  width: 90%;
-}
-.results-section {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  width: 90%;
-}
-.answer-list {
-  padding: 0;
-}
+  .timer-section {
+    width: 90%;
+  }
 
+  .section-question-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 90%;
+  }
+  .results-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 90%;
+  }
+  .answer-list {
+    padding: 0;
+  }
+}
 /*phones*/
 
 @media screen and (max-width: 480px) {
