@@ -95,7 +95,7 @@ const displayResults = (event) => {
       initials,
       score: timerId,
     };
-    console.log ()
+    console.log();
     storeInLS("feedbackResults", yourScore);
   } else {
     alert("Please input your ");

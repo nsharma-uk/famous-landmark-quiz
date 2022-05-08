@@ -8,7 +8,7 @@ This project modifies starter code to create an application that enables employe
 
 ## Deployed Page and Repository
 
-[Deployed page](https://nsharma-uk.github.io/landmark-quiz/)
+[Deployed page](https://nsharma-uk.github.io/famous-landmark-quiz/)
 
 
 [Repository](https://github.com/nsharma-uk/landmark-quiz)
