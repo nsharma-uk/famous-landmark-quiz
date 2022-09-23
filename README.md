@@ -28,7 +28,8 @@ In this project a timed coding quiz with multiple-choice questions was built. Th
   <br>
   <br>
 
-## Project Details - User Story 
+## Project Details - User Story
+
 <br>
 AS A user
 
@@ -36,11 +37,11 @@ I WANT to take a timed quiz on landmarks around the world that stores high score
 
 SO THAT I test my knowledge compared to other users
 
-
 <br>
 <br>
 
 ## Project Details - Acceptance Criteria
+
 <br>
 
 GIVEN I am taking a quiz
@@ -64,7 +65,6 @@ THEN the game is over
 WHEN the game is over
 
 THEN I can save my name and my score
-
 
 <br>
 <br>
