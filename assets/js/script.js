@@ -83,89 +83,21 @@ let quizComplete = false;
 let score = 0;
 let timerId;
 
-//local storage
+// initialise local storage
+const onLoad = () => {
+  // check if high scores exists
+  const highScores = readFromLocalStorage();
 
-const displayResults = (event) => {
-  //display name
-  event.preventDefault();
-  //get initials from form
-  const fullName = document.getElementById("fname").value;
-  if (initials) {
-    const yourScore = {
-      initials,
-      score: timerId,
-    };
-    console.log();
-    storeInLS("feedbackResults", yourScore);
-  } else {
-    alert("Please input your ");
+  if (!highScores) {
+    localStorage.setItem("highscores", JSON.stringify([]));
   }
 };
 
-const renderForm = () => {
-  //create section
-  const sectionResult = document.createElement("section");
-  sectionResult.setAttribute("class", "results-section");
-  sectionResult.setAttribute("id", "results-section-id");
-
-  //create div
-  const divResultDiv = document.createElement("div");
-  divResultDiv.setAttribute("class", "results-div");
-
-  //create h2
-  const h2Result = document.createElement("h2");
-  h2Result.setAttribute("class", "your-score");
-  h2Result.textContent = "Your Score";
-
-  //paragraphs
-  const pResult1 = document.createElement("p");
-  pResult1.textContent = `Congratulations on completing the quiz! You scored ${timerValue}`;
-  const pResult2 = document.createElement("p");
-  pResult2.textContent =
-    "If you would like to submit your score to the scoreboard please input your name";
-
-  //create hr
-  const hrResult = document.createElement("hr");
-  hrResult.setAttribute("class", "results-hr");
-
-  //append child <h2> and <hr> and <p> to parent div
-  divResultDiv.append(h2Result, hrResult, pResult1, pResult2);
-
-  //create form
-  const form = document.createElement("form");
-  form.setAttribute("id", "results-form");
-
-  //create div
-  const divInputName = document.createElement("div");
-  divInputName.setAttribute("id", "div-input-full-name");
-
-  //create input
-  const input = document.createElement("input");
-  input.setAttribute("id", "fname");
-  input.placeholder = "Your name here...";
-
-  ////create div
-  const divSubmit = document.createElement("div");
-  divSubmit.setAttribute("id", "div-submit-to-high-scores");
-
-  //create submit button
-  const submitScoresBtn = document.createElement("button");
-  submitScoresBtn.setAttribute("id", "submit-to-high-scores-button");
-  submitScoresBtn.setAttribute("class", "high-score-button");
-  submitScoresBtn.textContent = "Submit your score";
-
-  //append children to parents
-
-  divInputName.append(input);
-  divSubmit.append(submitScoresBtn);
-  form.append(divInputName, divSubmit);
-
-  sectionResult.append(divResultDiv, form);
-
-  mainElement.append(sectionResult);
-
-  // add submit event handler to form
-  sectionResult.add;
+// get scores from local storage
+const readFromLocalStorage = () => {
+  // get from LS & parse object
+  const parsedData = JSON.parse(localStorage.getItem("highscores"));
+  return parsedData;
 };
 
 //event handler for click event for answers
@@ -205,7 +137,7 @@ const handleChoiceClick = (event) => {
         removeQuestion();
         removeTimerSection();
         renderResults();
-        renderForm();
+        renderResultsForm();
       }
     } else {
       score += 1;
@@ -226,7 +158,7 @@ const handleChoiceClick = (event) => {
         removeQuestion();
         removeTimerSection();
         renderResults();
-        renderForm();
+        renderResultsForm();
       }
     }
   }
@@ -260,7 +192,6 @@ const renderQuestion = () => {
   divFirstSection.setAttribute("class", "div-section-title");
 
   //create h2
-  //TO DO - this should be dynamic question title
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "section-title");
   h2.textContent = currentQuestion.questionText;
@@ -350,8 +281,7 @@ const startTimer = () => {
   const updateTimerValue = () => {
     // decrement timer value
     timerValue -= 1;
-    //target the update timer
-    const updateTimer = document.getElementById("timer-span");
+
     // if quizComplete is true: stop timer
     if (quizComplete) {
       clearInterval(timerId);
@@ -362,14 +292,15 @@ const startTimer = () => {
       updateTimer.textContent = timerValue;
     }
     //check if timer reaches 0
-    if (timerValue <= 0) {
-      clearInterval(timerId); //NOT SURE ABOUT THIS
+    if (timerValue === 0) {
+      clearInterval(timerId);
       document.getElementById("question-container").remove;
+
       //if true render game over
       removeQuestion();
       removeTimerSection();
       renderResults();
-      renderForm();
+      renderResultsForm();
       //
     }
   };
@@ -377,6 +308,7 @@ const startTimer = () => {
 };
 
 const validateAnswer = (event) => {
+  event.stopPropagation();
   // get answer clicked from user
   const currentQuestion = questions[questionIndex];
   const target = event.target;
@@ -412,6 +344,7 @@ const validateAnswer = (event) => {
 
   startButton.addEventListener("click", handleStartButtonClick);
 };
+
 const renderTimerSection = () => {
   // use HTML as guide and build in JS
 
@@ -433,11 +366,120 @@ const renderTimerSection = () => {
   mainElement.append(timerSection);
 };
 
-const renderAlert = (message, status) => {
-  // use HTML as guide and build in JS
-  // append div to #question-section
+const renderResultsForm = () => {
+  //create section
+  const sectionResult = document.createElement("section");
+  sectionResult.setAttribute("class", "results-section");
+  sectionResult.setAttribute("id", "results-section-id");
+
+  //create div
+  const divResultDiv = document.createElement("div");
+  divResultDiv.setAttribute("class", "results-div");
+
+  //create h2
+  const h2Result = document.createElement("h2");
+  h2Result.setAttribute("class", "your-score");
+  h2Result.textContent = "Your Score";
+
+  //paragraphs
+  const pResult1 = document.createElement("p");
+  pResult1.textContent = `Congratulations on completing the quiz! You scored ${timerValue}`;
+  const pResult2 = document.createElement("p");
+  pResult2.textContent =
+    "If you would like to submit your score to the scoreboard please input your name";
+
+  //create hr
+  const hrResult = document.createElement("hr");
+  hrResult.setAttribute("class", "results-hr");
+
+  //append child <h2> and <hr> and <p> to parent div
+  divResultDiv.append(h2Result, hrResult, pResult1, pResult2);
+
+  //create form
+  const form = document.createElement("form");
+  form.setAttribute("id", "results-form");
+
+  //create div
+  const divInputName = document.createElement("div");
+  divInputName.setAttribute("id", "div-input-full-name");
+
+  //create input
+  const input = document.createElement("input");
+  input.setAttribute("id", "fname");
+  input.placeholder = "Your name here...";
+
+  ////create div
+  const divSubmit = document.createElement("div");
+  divSubmit.setAttribute("id", "div-submit-to-high-scores");
+
+  //create submit button
+  const submitScoresBtn = document.createElement("button");
+  submitScoresBtn.setAttribute("id", "submit-to-high-scores-button");
+  submitScoresBtn.setAttribute("class", "high-score-button");
+  submitScoresBtn.setAttribute("type", "submit");
+  submitScoresBtn.textContent = "Submit your score";
+
+  //append children to parents
+
+  divInputName.append(input);
+  divSubmit.append(submitScoresBtn);
+  form.append(divInputName, divSubmit);
+
+  sectionResult.append(divResultDiv, form);
+
+  mainElement.append(sectionResult);
+
+  // sectionResult.add;
+  // add submit event handler to form
+  submitScoresBtn.addEventListener("click", handleResultsForm);
 };
+
+// const renderAlert = (message, status) => {
+//   // use HTML as guide and build in JS
+//   // append div to #question-section
+// };
 
 // use HTML as guide and build in JS
 // append section to main
 // add submit event handler to form*/
+
+const handleResultsForm = (event) => {
+  event.preventDefault();
+
+  //get name from form
+  const fullName = document.getElementById("fname").value;
+  console.log(fullName);
+
+  if (fullName) {
+    const yourScore = {
+      userName: fullName,
+      score: timerValue,
+    };
+    console.log(yourScore);
+
+    const highScores = readFromLocalStorage();
+
+    //push score into LS
+    highScores.push(yourScore);
+    writeToLocalStorage("highscores", highScores);
+
+    // render high scores page
+    renderHighScores();
+  } else {
+    alert("Please input your your name before submitting your score to thee ");
+  }
+};
+
+const writeToLocalStorage = (key, value) => {
+  // stringify object value
+  const stringifiedValue = JSON.stringify(value);
+  //   set value for each key within LS
+  localStorage.setItem(key, stringifiedValue);
+};
+
+const renderHighScores = () => {
+  window.location = "highscores.html";
+};
+
+//event listener for document on load
+window.addEventListener("load", onLoad);
