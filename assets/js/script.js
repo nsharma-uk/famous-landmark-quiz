@@ -132,11 +132,11 @@ const handleChoiceClick = (event) => {
         //and render the next question
         renderQuestion();
       } else {
-        //go to the last question amd render  form with scores
+        //go to the last question and render form with scores
         //remove questions
+        clearInterval(timerId);
         removeQuestion();
         removeTimerSection();
-        renderResults();
         renderResultsForm();
       }
     } else {
@@ -157,16 +157,10 @@ const handleChoiceClick = (event) => {
         clearInterval(timerId);
         removeQuestion();
         removeTimerSection();
-        renderResults();
         renderResultsForm();
       }
     }
   }
-};
-
-//declare function to render the results in function choiceHandleClick
-const renderResults = () => {
-  console.log("render results");
 };
 
 //declare function to remove question from page
@@ -245,15 +239,13 @@ const renderQuestion = () => {
 
   //add event listener to question section
   section.addEventListener("click", handleChoiceClick);
-
-  //TO DO  - Where in renderQuestion do I add this?
-  //section.addEventListener("click", validateAnswer)
 };
 
 //declare function to remove #start-quiz-section from page
 const removeStartSection = () => {
   startQuizSection.remove();
 };
+
 //declare event handler for when start button is clicked
 const handleStartButtonClick = () => {
   //remove start section
@@ -264,16 +256,13 @@ const handleStartButtonClick = () => {
 
   //start timer
   startTimer();
-  //render questions
 
+  //render questions
   renderQuestion();
 };
 
 //add event listener to start quiz button
 startButton.addEventListener("click", handleStartButtonClick);
-
-//adding event listener function as a higher order function
-//startButton.addEventListener("click", handleTimerButton);
 
 //start timer
 const startTimer = () => {
@@ -299,9 +288,7 @@ const startTimer = () => {
       //if true render game over
       removeQuestion();
       removeTimerSection();
-      renderResults();
       renderResultsForm();
-      //
     }
   };
   timerId = setInterval(updateTimerValue, 1000);
@@ -314,11 +301,10 @@ const validateAnswer = (event) => {
   const target = event.target;
 
   // get the correct answer for question
-
   const currentTarget = (event.currentTarget = currentQuestion.correctAnswer);
 
   // compare the 2 answers
-  if (value !== currentValue) {
+  if (value !== currentTarget) {
     // if incorrect subtract 5 seconds from timerValue
     timerValue -= 5;
 
@@ -329,20 +315,6 @@ const validateAnswer = (event) => {
 
     renderQuestion();
   }
-
-  const handleFormSubmit = () => {
-    // get value from input
-    // check if empty then render error alert with message and status
-    // if not empty then create the score object
-    // {
-    //   fullName: "Bob Smith",
-    //   score: 25
-    // }
-    // push score object to LS
-    // render quizCompleteSection
-  };
-
-  startButton.addEventListener("click", handleStartButtonClick);
 };
 
 const renderTimerSection = () => {
@@ -420,7 +392,6 @@ const renderResultsForm = () => {
   submitScoresBtn.textContent = "Submit your score";
 
   //append children to parents
-
   divInputName.append(input);
   divSubmit.append(submitScoresBtn);
   form.append(divInputName, divSubmit);
@@ -429,33 +400,21 @@ const renderResultsForm = () => {
 
   mainElement.append(sectionResult);
 
-  // sectionResult.add;
   // add submit event handler to form
   submitScoresBtn.addEventListener("click", handleResultsForm);
 };
-
-// const renderAlert = (message, status) => {
-//   // use HTML as guide and build in JS
-//   // append div to #question-section
-// };
-
-// use HTML as guide and build in JS
-// append section to main
-// add submit event handler to form*/
 
 const handleResultsForm = (event) => {
   event.preventDefault();
 
   //get name from form
   const fullName = document.getElementById("fname").value;
-  console.log(fullName);
 
   if (fullName) {
     const yourScore = {
       userName: fullName,
       score: timerValue,
     };
-    console.log(yourScore);
 
     const highScores = readFromLocalStorage();
 
