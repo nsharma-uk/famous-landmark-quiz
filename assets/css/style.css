@@ -20,7 +20,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 0.8rem;
 }
 
 body {
@@ -87,7 +87,9 @@ hr {
 }
 /*end of header styles*/
 
-/*Start of <main> 1st page styles */
+/*Start of index.html 
+
+<main> 1st page styles */
 
 .section {
   text-align: center;
@@ -119,7 +121,7 @@ hr {
 
 #start-quiz-button {
   background-color: lightgrey;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--eerie-black);
   width: 50%;
   border: none;
@@ -157,7 +159,7 @@ hr {
   color: var(--cultured-2);
   transition: color 0.2s;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .footer-link a {
@@ -296,7 +298,7 @@ hr {
 
 /*Start of high scores section styling in highscores.html*/
 
-.high-score-section {
+#main-high {
   text-align: center;
   font-size: 1.8rem;
   background-color: var(--cadet-blue-crayola);
@@ -309,17 +311,70 @@ hr {
   border-radius: 0.4rem;
 }
 
+#start-quiz-button {
+  background-color: lightgrey;
+  font-size: 1.5rem;
+  color: var(--eerie-black);
+  width: 50%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+#start-quiz-button:hover {
+  cursor: pointer;
+  background-color: var(--davys-grey);
+}
+
+.table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+
+  border-bottom: solid;
+  border-width: 1px 0;
+}
+
 .button-section-div {
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
+  margin-top: 16px;
+}
+
+#take-quiz-button {
+  background-color: lightgrey;
+  font-size: 1.8rem;
+  color: var(--eerie-black);
+  width: 50%;
+  border: none;
+  padding: 1.5rem;
   margin: auto;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin-top: 2rem;
+  overflow: hidden;
 }
 
 #retry-button {
   background-color: lightgrey;
-  font-size: 24px;
+  font-size: 1.8rem;
   color: var(--eerie-black);
   width: 50%;
   border: none;
@@ -333,7 +388,7 @@ hr {
 
 #clear-scores-button {
   background-color: lightgrey;
-  font-size: 24px;
+  font-size: 1.8rem;
   color: var(--eerie-black);
   width: 50%;
   border: none;

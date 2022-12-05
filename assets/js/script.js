@@ -418,14 +418,17 @@ const handleResultsForm = (event) => {
 
     const highScores = readFromLocalStorage();
 
-    //push score into LS
+    //push score object into LS
     highScores.push(yourScore);
+
+    highScores.sort((a, b) => b.score - a.score);
+
     writeToLocalStorage("highscores", highScores);
 
     // render high scores page
     renderHighScores();
   } else {
-    alert("Please input your your name before submitting your score to thee ");
+    alert("Please input your your name before submitting your score");
   }
 };
 
