@@ -7,71 +7,92 @@
     <title>Famous Landmarks of the World Quiz | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="./assets/css/style.css"/>
-    </head>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
   <body>
     <!--Header with links-->
     <header>
       <nav class="nav-container">
         <a class="nav-link" href="./highscores.html">High Scores</a>
-        <div class="nav-link-icon" >
+        <div class="nav-link-icon">
           <img
-          src="./assets/images/001-landmark.png"
-          alt="Famous landmark icon." class="icon-image"> <div>
-      
-                  
-                
+            src="./assets/images/001-landmark.png"
+            alt="Famous landmark icon."
+            class="icon-image"
+          />
+        </div>
       </nav>
     </header>
 
     <!--First page - Main section for the quiz-->
     <main class="main" id="main">
-      <section id="start-quiz-section" class="section">
-        <h2>Famous Landmarks Quiz</h1>
-        <hr>
+      <div id="start-quiz-section" class="start-quiz-section">
+        <h1>Famous Landmarks Quiz</h1>
+        <hr />
 
         <!--First page - Brief intro about the quiz-->
 
         <div>
-        <p>
-          Test your knowledge about landmarks from around the world.
-        </p>
-        <p>Your score depends on how quickly you answer the questions.  Watch out though! You will lose 5 seconds if you get a question wrong. </button></p>
+          <p>Test your knowledge about landmarks from around the world.</p>
+          <p>
+            Your score depends on how quickly you answer the questions. Watch
+            out though! You will lose 5 seconds if you get a question wrong.
+          </p>
+        </div>
+
+        <!--First page - start quiz button-->
+        <div>
+          <div class="button-control">
+            <button type="button" id="start-quiz-button" class="button">
+              Start Quiz
+            </button>
+          </div>
+        </div>
       </div>
+      <!-- question section dynamically rendered via JS -->
 
-<!--First page - start quiz button-->
-<section> 
-      <div class="button-control">
-        <button type="button" id="start-quiz-button" class="button">Start Quiz</button>
-      </div>
-
-    </section>
-
-<!-- question section dynamically rendered via JS -->
-
-
-<!-- Your score dynamically rendered via JS-->
-
-</main>
+      <!-- Your score dynamically rendered via JS-->
+    </main>
 
     <!--web footer section-->
     <footer class="footer">
       <div class="footer-container">
-      
-          <div class="footer-link-item">
-            <a class="social-icon" href="mailto:nsharmauk711@gmail.com" target="_blank">  
-              <ion-icon name="mail-outline"></ion-icon>
-              </a>
-             <a class="social-icon" href="https://github.com/nsharma-uk" target="_blank">  
+        <div class="footer-link-item">
+          <a
+            class="social-icon"
+            href="mailto:nsharmauk711@gmail.com"
+            target="_blank"
+          >
+            <ion-icon name="mail-outline"></ion-icon>
+          </a>
+          <a
+            class="social-icon"
+            href="https://github.com/nsharma-uk"
+            target="_blank"
+          >
             <ion-icon name="logo-github"></ion-icon>
-            </a>
-         </div> 
-          <div class="footer-link"> Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik"> monkik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+          </a>
+        </div>
+        <div class="footer-link">
+          Icons made by
+          <a href="https://www.flaticon.com/authors/monkik" title="monkik">
+            monkik
+          </a>
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
         </div>
       </div>
     </footer>
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-      <script src="./assets/js/script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
