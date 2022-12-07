@@ -20,7 +20,7 @@ const onLoad = () => {
   if (!highScores || highScores.length === 0) {
     highScoresTable.remove();
 
-    const message = document.createElement("h2");
+    const message = document.createElement("h1");
     message.setAttribute("class", "high-scores-message");
     message.setAttribute("id", "high-scores-message");
     message.textContent = "Currently no scores to display";
@@ -50,10 +50,10 @@ const onLoad = () => {
   section.setAttribute("class", "high-score-section");
   section.setAttribute("id", "high-score-section");
 
-  //create h2
-  const h2 = document.createElement("h2");
-  h2.setAttribute("class", "high-score-h2");
-  h2.textContent = "Top 5 Scores";
+  //create h1
+  const h1 = document.createElement("h1");
+  h1.setAttribute("class", "high-score-h1");
+  h1.textContent = "Top 5 Scores";
 
   //create hr
   const hr = document.createElement("hr");
@@ -95,7 +95,7 @@ const onLoad = () => {
     tableRow.append(tableName, tableScore);
     table.append(columnName, columnScore);
     divTableSection.append(tableRow);
-    section.append(h2, hr, table, divTableSection);
+    section.append(h1, hr, table, divTableSection);
   });
 
   //create div

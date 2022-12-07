@@ -3,7 +3,7 @@ const questions = [
   {
     questionText: "In which country would you find the Wadi Rum?",
     choices: ["Syria", "Iraq", "Jordan", "Bahrain"],
-    correctAnswer: "Jordan", // answer: "Jordan"
+    correctAnswer: "Jordan",
   },
 
   {
@@ -14,7 +14,7 @@ const questions = [
       "Burj Khalifa",
       "Shanghai Tower",
     ],
-    correctAnswer: "Shanghai Tower", // answer: Shanghai Tower,
+    correctAnswer: "Shanghai Tower",
   },
 
   {
@@ -25,28 +25,27 @@ const questions = [
       "Cannonhill Park",
       "Stanley Park",
     ],
-    correctAnswer: "Birkenhead Park", // answer: Birkenhead
+    correctAnswer: "Birkenhead Park",
   },
 
   {
     questionText:
       "The World Heritage Site Machu Picchu can be found in which country?",
     choices: ["Ecuador", "Bolivia", "Peru", "Chile"],
-    correctAnswer: "Peru", // answer: Peru
+    correctAnswer: "Peru",
   },
 
   {
     questionText: "How many countries border the Himalayas?",
     choices: ["4", "5", "6", "7"],
-    correctAnswer: "6", // answer: "6",
+    correctAnswer: "6",
   },
 
   {
     questionText: "How many degrees does the Pisa tower lean?",
     choices: ["5.5 degrees", "6.5 degrees", "7.5 degrees", "8.5 degrees"],
-    correctAnswer: "5.5 degrees", //5.5 degrees
+    correctAnswer: "5.5 degrees",
   },
-
   {
     questionText:
       "Uluru in Australia is made up of sandstone from how long ago?",
@@ -56,7 +55,7 @@ const questions = [
       "Around 500 million years",
       "Around 600 million years",
     ],
-    correctAnswer: "Around 600 million years", // answer: Around 6oom years
+    correctAnswer: "Around 600 million years",
   },
 
   {
@@ -178,24 +177,24 @@ const renderQuestion = () => {
   const currentQuestion = questions[questionIndex];
 
   //create section
-  const section = document.createElement("section");
+  const section = document.createElement("div");
   section.setAttribute("class", "section-question-container");
   section.setAttribute("id", "question-container");
   //create div
   const divFirstSection = document.createElement("div");
   divFirstSection.setAttribute("class", "div-section-title");
 
-  //create h2
-  const h2 = document.createElement("h2");
-  h2.setAttribute("class", "section-title");
-  h2.textContent = currentQuestion.questionText;
+  //create h1
+  const h1 = document.createElement("h1");
+  h1.setAttribute("class", "section-title");
+  h1.textContent = currentQuestion.questionText;
 
   //create hr
   const hr = document.createElement("hr");
   hr.setAttribute("class", "section-hr");
 
-  //append child <h2> and <hr> to parent div?  -NOT SURE Check!
-  divFirstSection.append(h2, hr);
+  //append child <h1> and <hr> to parent div?  -NOT SURE Check!
+  divFirstSection.append(h1, hr);
 
   //create div
   const divAnswerSection = document.createElement("div");
@@ -298,17 +297,14 @@ const validateAnswer = (event) => {
   event.stopPropagation();
   // get answer clicked from user
   const currentQuestion = questions[questionIndex];
-  const target = event.target;
 
   // get the correct answer for question
-  const currentTarget = (event.currentTarget = currentQuestion.correctAnswer);
+  const currentTarget = (event.target = currentQuestion.correctAnswer);
 
   // compare the 2 answers
   if (value !== currentTarget) {
     // if incorrect subtract 5 seconds from timerValue
     timerValue -= 5;
-
-    //TO DO renderQUestionWrongAlert function -> if incorrect render error alert with message and status
   } else if (questionIndex < questions.length - 1) {
     // if question is not last question then increment question index and render next question
     questionIndex += 1;
@@ -318,9 +314,7 @@ const validateAnswer = (event) => {
 };
 
 const renderTimerSection = () => {
-  // use HTML as guide and build in JS
-
-  const timerSection = document.createElement("section");
+  const timerSection = document.createElement("div");
   timerSection.setAttribute("class", "timer-section");
   timerSection.setAttribute("id", "timer-section-id");
 
@@ -340,7 +334,7 @@ const renderTimerSection = () => {
 
 const renderResultsForm = () => {
   //create section
-  const sectionResult = document.createElement("section");
+  const sectionResult = document.createElement("div");
   sectionResult.setAttribute("class", "results-section");
   sectionResult.setAttribute("id", "results-section-id");
 
@@ -348,10 +342,10 @@ const renderResultsForm = () => {
   const divResultDiv = document.createElement("div");
   divResultDiv.setAttribute("class", "results-div");
 
-  //create h2
-  const h2Result = document.createElement("h2");
-  h2Result.setAttribute("class", "your-score");
-  h2Result.textContent = "Your Score";
+  //create h1
+  const h1Result = document.createElement("h1");
+  h1Result.setAttribute("class", "your-score");
+  h1Result.textContent = "Your Score";
 
   //paragraphs
   const pResult1 = document.createElement("p");
@@ -364,8 +358,8 @@ const renderResultsForm = () => {
   const hrResult = document.createElement("hr");
   hrResult.setAttribute("class", "results-hr");
 
-  //append child <h2> and <hr> and <p> to parent div
-  divResultDiv.append(h2Result, hrResult, pResult1, pResult2);
+  //append child <h1> and <hr> and <p> to parent div
+  divResultDiv.append(h1Result, hrResult, pResult1, pResult2);
 
   //create form
   const form = document.createElement("form");
@@ -400,8 +394,20 @@ const renderResultsForm = () => {
 
   mainElement.append(sectionResult);
 
+  // Create error element at page load for name input on results section
+  const nameInput = document.createElement("div");
+  nameInput.setAttribute("class", "confirm-name");
+  nameInput.setAttribute("id", "error-name");
+  nameInput.textContent = "Please enter your name";
+  nameInput.style.display = "none"; // hide it
+  const fullName = document.getElementById("submit-to-high-scores-button");
+  fullName.appendChild(nameInput);
+
   // add submit event handler to form
   submitScoresBtn.addEventListener("click", handleResultsForm);
+  document.getElementById("fname").addEventListener("input", () => {
+    nameInput.style.display = "none";
+  });
 };
 
 const handleResultsForm = (event) => {
@@ -409,6 +415,11 @@ const handleResultsForm = (event) => {
 
   //get name from form
   const fullName = document.getElementById("fname").value;
+
+  const nameInput = document.getElementById("error-name");
+
+  // set visibility of the error message
+  nameInput.style.display = fullName ? "none" : "";
 
   if (fullName) {
     const yourScore = {
@@ -427,8 +438,6 @@ const handleResultsForm = (event) => {
 
     // render high scores page
     renderHighScores();
-  } else {
-    alert("Please input your your name before submitting your score");
   }
 };
 
