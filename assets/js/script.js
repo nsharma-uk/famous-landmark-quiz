@@ -349,7 +349,7 @@ const renderResultsForm = () => {
 
   //paragraphs
   const pResult1 = document.createElement("p");
-  pResult1.textContent = `Congratulations on completing the quiz! You scored ${timerValue}`;
+  pResult1.textContent = `Congratulations on completing the quiz! You scored ${timerValue} points`;
   const pResult2 = document.createElement("p");
   pResult2.textContent =
     "If you would like to submit your score to the scoreboard please input your name";

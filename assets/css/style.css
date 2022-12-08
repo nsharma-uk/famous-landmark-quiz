@@ -12,30 +12,30 @@
 }
 
 /*whole document styling*/
-
 * {
   margin: 0;
   font-family: "Barlow", sans-serif;
   box-sizing: border-box;
-}
-
-html {
-  font-size: 0.8rem;
+  letter-spacing: 0.1ch;
 }
 
 body {
-  width: 100%;
   background-color: var(--cultured);
   text-align: centre;
-  justify-content: center;
   display: flex;
   flex-direction: column;
-  line-height: 2;
+  line-height: 1.6;
+  letter-spacing: 0.1ch;
   min-height: 100vh;
+  color: var(--eerie-black);
 }
 
 main {
   flex: 2;
+}
+
+a {
+  color: var(--cultured-2);
 }
 
 a:hover {
@@ -44,33 +44,52 @@ a:hover {
 }
 
 p {
-  padding: 0.6rem;
+  padding: 16px;
+  font-size: 1.2rem;
 }
-header {
-  background-color: var(--onyx);
+
+h1 {
+  font-size: 1.4rem;
+  padding-bottom: 16px;
 }
 
 h2 {
-  font-size: 2rem;
-  padding-bottom: 1rem;
-  text-align: center;
+  font-size: 1.3rem;
 }
 
-hr {
-  margin-bottom: 1rem;
+h3 {
+  font-size: 1.2rem;
 }
 
-/*start of header styles
+button {
+  background-color: var(--light-gray);
+  font-size: 1.2rem;
+  color: var(--eerie-black);
+  width: 50%;
+  border: none;
+  padding: 8px;
+  margin: 0 auto;
+  border-radius: 0.4rem;
+  margin-top: 32px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--davys-grey);
+  transition: color 0.2s;
+}
 
 /* Flex properties for navbar with links and logo*/
 
 .nav-container {
+  background-color: var(--onyx);
+  letter-spacing: 0.1ch;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 16px 32px;
   color: var(--onyx);
 }
 
@@ -83,76 +102,22 @@ hr {
   color: var(--cultured-2);
   text-decoration: none;
   transition: color 0.2s;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 /*end of header styles*/
 
-/*Start of index.html 
-
-<main> 1st page styles */
-
-.section {
-  text-align: center;
-  font-size: 1.8rem;
-  background-color: var(--cadet-blue-crayola);
-  width: 60%;
-  border: 2px solid var(--onyx);
-  padding: 3rem;
-  margin: auto;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
-  border-radius: 0.4rem;
-}
-/*End of <main> styles>
-
-/* start of button styles */
-
-.section-question-container {
-  align-items: center;
-  background-color: var(--cadet-blue-crayola);
-  width: 60%;
-  border: 2px solid var(--onyx);
-  padding: 1.5rem;
-  margin: auto;
-  margin-top: 7rem;
-  margin-bottom: 8rem;
-  border-radius: 0.4rem;
-}
-
-#start-quiz-button {
-  background-color: lightgrey;
-  font-size: 1.5rem;
-  color: var(--eerie-black);
-  width: 50%;
-  border: none;
-  padding: 1.5rem;
-  border-radius: 0.4rem;
-  text-align: center;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-#start-quiz-button:hover {
-  cursor: pointer;
-  background-color: var(--davys-grey);
-}
-
-/* end of button styles */
-
 /* Start of webpage footer styles */
-.footer {
-  background-color: var(--onyx);
-  padding: 1rem 0;
-  letter-spacing: 0.4m;
-}
+
 .footer-container {
+  background-color: var(--onyx);
+  padding: 20px;
+  letter-spacing: 0.4m;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   color: var(--cultured-2);
-  padding: 1rem 2rem;
 }
 
 .social-icon {
@@ -162,14 +127,37 @@ hr {
   font-size: 2rem;
 }
 
-.footer-link a {
-  font-size: 1.5rem;
+.footer-link,
+.footer-p {
+  font-size: 0.8rem;
   color: var(--cultured-2);
 }
 
 /* End of webpage footer styles
 
-/* timer styling*/
+Start of page styles*/
+
+:is(
+    .start-quiz-section,
+    .section-question-container,
+    .results-section,
+    .high-scores-section,
+    .high-scores-table
+  ) {
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: var(--cadet-blue-crayola);
+  width: 60%;
+  border: 2px solid var(--onyx);
+  padding: 36px;
+  margin: auto;
+  margin-top: 48px;
+  margin-bottom: 128px;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .timer-section {
   text-align: center;
@@ -180,25 +168,7 @@ hr {
   margin: auto;
   margin-top: 3rem;
   border-radius: 0.4rem;
-  font-size: 2rem;
-}
-
-.timer-span {
-  font-size: 4rem;
-}
-
-/*Start of questions section styling*/
-
-.section-question-container {
-  align-items: center;
-  background-color: var(--cadet-blue-crayola);
-  width: 60%;
-  border: 2px solid var(--onyx);
-  padding: 3rem;
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 8rem;
-  border-radius: 0.4rem;
+  font-size: 1.3rem;
 }
 
 .div-answer-list {
@@ -209,6 +179,8 @@ hr {
 }
 
 .answer-list {
+  display: flex;
+  flex-direction: column;
   width: 95%;
   align-items: center;
   margin: auto;
@@ -217,13 +189,12 @@ hr {
 
 .list-item {
   background-color: lightgrey;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: var(--eerie-black);
-  padding: 1.5rem;
+  padding: 8px;
   border-radius: 0.4rem;
   text-align: center;
-  margin: auto;
-  margin-top: 2rem;
+  margin-top: 20px;
   list-style-type: none;
   width: 90%;
   text-decoration: none;
@@ -233,119 +204,40 @@ hr {
   background-color: var(--sonic-silver);
 }
 
-/*End of questions section styling*/
-
-/*Start of results form section styling*/
-
-.results-section {
-  background-color: var(--cadet-blue-crayola);
-  width: 60%;
-  border: 2px solid var(--onyx);
-  padding: 3rem;
-  margin: auto;
-  margin-top: 7rem;
-  margin-bottom: 8rem;
-  border-radius: 0.4rem;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
-#results-form {
-  width: 100%;
-  align-items: center;
-}
-
-#fname {
+input {
   background-color: var(--cultured);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: var(--eerie-black);
-  padding: 1.5rem;
+  padding: 8px;
   border-radius: 0.4rem;
   text-align: center;
-  margin: 2rem;
-  width: 40%;
+  width: 50%;
 }
 
-#div-submit-to-high-scores {
-  font-size: 1.6rem;
-  color: var(--eerie-black);
-  border-radius: 0.4rem;
-  text-align: center;
-  margin: auto;
-  list-style-type: none;
-  width: 90%;
+::placeholder {
+  font-size: 0.8rem;
 }
 
-.high-score-button {
-  background-color: lightgrey;
-  font-size: 1.6rem;
-  color: var(--eerie-black);
-  width: 90%;
-  border: none;
-  padding: 1.5rem;
-  border-radius: 0.4rem;
-  text-align: center;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-.high-score-button:hover {
-  cursor: pointer;
-  background-color: var(--sonic-silver);
+#error-name {
+  color: red;
+  font-size: 0.8rem;
 }
 
 /*End of results form section styling*/
 
 /*Start of high scores section styling in highscores.html*/
 
-#main-high {
-  text-align: center;
-  font-size: 1.8rem;
-  background-color: var(--cadet-blue-crayola);
-  width: 60%;
-  border: 2px solid var(--onyx);
-  padding: 3rem;
-  margin: auto;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
-  border-radius: 0.4rem;
-}
-
-#start-quiz-button {
-  background-color: lightgrey;
-  font-size: 1.5rem;
-  color: var(--eerie-black);
-  width: 50%;
-  border: none;
-  padding: 1.5rem;
-  border-radius: 0.4rem;
-  text-align: center;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-#start-quiz-button:hover {
-  cursor: pointer;
-  background-color: var(--davys-grey);
-}
-
-.table {
+:is(table, .table-row) {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 16px 16px;
+  font-size: 1.2rem;
 }
 
 .table-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-
   border-bottom: solid;
   border-width: 1px 0;
 }
@@ -353,56 +245,7 @@ hr {
 .button-section-div {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  text-align: center;
   margin-top: 16px;
-}
-
-#take-quiz-button {
-  background-color: lightgrey;
-  font-size: 1.8rem;
-  color: var(--eerie-black);
-  width: 50%;
-  border: none;
-  padding: 1.5rem;
-  margin: auto;
-  border-radius: 0.4rem;
-  text-align: center;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-#retry-button {
-  background-color: lightgrey;
-  font-size: 1.8rem;
-  color: var(--eerie-black);
-  width: 50%;
-  border: none;
-  padding: 1.5rem;
-  margin: auto;
-  border-radius: 0.4rem;
-  text-align: center;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-#clear-scores-button {
-  background-color: lightgrey;
-  font-size: 1.8rem;
-  color: var(--eerie-black);
-  width: 50%;
-  border: none;
-  padding: 1.5rem;
-  margin: auto;
-  border-radius: 0.4rem;
-  text-align: center;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-#start-quiz-button:hover {
-  cursor: pointer;
-  background-color: var(--davys-grey);
 }
 
 /*End of high scores section styling in highscores.html*/
@@ -411,90 +254,64 @@ hr {
 
 /*tablets*/
 @media screen and (max-width: 768px) {
-  .main {
-    margin: 0 1.5rem;
-  }
-
-  .section {
-    width: 90%;
+  :is(
+      .start-quiz-section,
+      .section-question-container,
+      .results-section,
+      .high-scores-section,
+      .high-scores-table
+    ) {
+    width: 80%;
   }
 
   .timer-section {
-    width: 90%;
+    width: 80%;
   }
 
-  .section-question-container {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 90%;
-  }
-  .results-section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 90%;
-  }
   .answer-list {
     padding: 0;
   }
 }
+
 /*phones*/
-
 @media screen and (max-width: 480px) {
-  .main {
-    margin: 0 1rem;
+  :is(
+      .start-quiz-section,
+      .section-question-container,
+      .results-section,
+      .high-scores-section,
+      .high-scores-table
+    ) {
+    width: 94%;
   }
 
-  .section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    line-height: 1.5;
+  .high-scores-table {
+    padding: 16px;
   }
 
-  #start-quiz-button {
+  button {
     width: 100%;
   }
 
-  .footer-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  .section-question-container {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 98%;
-  }
-  .timer-section {
-    width: 98%;
-  }
-
-  .timer-span {
-    font-size: 4rem;
-  }
-  .results-section {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 100%;
-    line-height: 1.5;
-  }
-
-  #fname {
-    width: 90%;
-  }
   .answer-list {
     padding: 0;
     margin: auto;
     width: 100%;
   }
 
-  #div-submit-to-high-scores {
-    font-size: 1.6rem;
-    color: var(--eerie-black);
-    border-radius: 0.4rem;
+  #table #table-row {
+    padding: 16px 16px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .footer-container {
+    justify-content: center;
+  }
+
+  .footer-link {
     text-align: center;
-    margin: auto;
-    list-style-type: none;
-    width: 90%;
   }
 }

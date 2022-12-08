@@ -20,12 +20,16 @@ const onLoad = () => {
   if (!highScores || highScores.length === 0) {
     highScoresTable.remove();
 
+    const sectionHighScores = document.createElement("div");
+    sectionHighScores.setAttribute("class", "high-scores-section");
+    sectionHighScores.setAttribute("id", "high-scores-section");
+
     const message = document.createElement("h1");
     message.setAttribute("class", "high-scores-message");
     message.setAttribute("id", "high-scores-message");
     message.textContent = "Currently no scores to display";
 
-    const message1 = document.createElement("h2");
+    const message1 = document.createElement("h3");
     message1.setAttribute("class", "high-scores-message1");
     message1.setAttribute("id", "high-scores-message1");
     message1.textContent = "Please take the quiz to see a score board here";
@@ -36,7 +40,8 @@ const onLoad = () => {
     const takeQuizButton = document.createElement("button");
     takeQuizButton.setAttribute("id", "take-quiz-button");
     takeQuizButton.textContent = "Take Quiz";
-    mainHigh.append(message, hr1, message1, takeQuizButton);
+    sectionHighScores.append(message, hr1, message1, takeQuizButton);
+    mainHigh.append(sectionHighScores);
     // mainHigh.append(message, message1);
     takeQuizButton.addEventListener("click", handleTakeQuizClick);
   } else {
@@ -53,7 +58,12 @@ const onLoad = () => {
   //create h1
   const h1 = document.createElement("h1");
   h1.setAttribute("class", "high-score-h1");
-  h1.textContent = "Top 5 Scores";
+  h1.textContent = "Scoreboard";
+
+  //create h3
+  const h3 = document.createElement("h3");
+  h3.setAttribute("class", "high-score-h3");
+  h3.textContent = "Top 5 Scores";
 
   //create hr
   const hr = document.createElement("hr");
@@ -65,7 +75,7 @@ const onLoad = () => {
 
   //create table
   const table = document.createElement("table");
-  table.setAttribute("class", "table");
+  table.setAttribute("class", "score-table");
 
   //table column names
   const columnName = document.createElement("th");
@@ -95,7 +105,7 @@ const onLoad = () => {
     tableRow.append(tableName, tableScore);
     table.append(columnName, columnScore);
     divTableSection.append(tableRow);
-    section.append(h1, hr, table, divTableSection);
+    section.append(h1, h3, hr, table, divTableSection);
   });
 
   //create div
