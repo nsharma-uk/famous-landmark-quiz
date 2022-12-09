@@ -400,8 +400,8 @@ const renderResultsForm = () => {
   nameInput.setAttribute("id", "error-name");
   nameInput.textContent = "Please enter your name";
   nameInput.style.display = "none"; // hide it
-  const fullName = document.getElementById("submit-to-high-scores-button");
-  fullName.appendChild(nameInput);
+  const fullName = document.getElementById("results-form");
+  fullName.append(nameInput);
 
   // add submit event handler to form
   submitScoresBtn.addEventListener("click", handleResultsForm);

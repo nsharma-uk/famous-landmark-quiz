@@ -77,6 +77,7 @@ button:hover {
   cursor: pointer;
   background-color: var(--davys-grey);
   transition: color 0.2s;
+  color: var(--light-gray);
 }
 
 /* Flex properties for navbar with links and logo*/
@@ -188,7 +189,7 @@ Start of page styles*/
 }
 
 .list-item {
-  background-color: lightgrey;
+  background-color: var(--light-gray);
   font-size: 1.2rem;
   color: var(--eerie-black);
   padding: 8px;
